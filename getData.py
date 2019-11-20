@@ -13,13 +13,13 @@ athlete_max = []
 with open('data.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     for row in readCSV:
-        if (row[3] == "Day " or row[3] == "Day"):
-            print("\n\nWORKING\n\n")
-            continue
-        athlete.append((row[1], row[2], row[3]))
-        workout.append((row[4], row[6]))
-        exercise_set.append((row[4], row[3], row[36], row[35], row[39], row[8]))
-        athlete_max.append((row[4], row[3], row[34]))
+        if row[3].isdigit():
+            athlete.append((row[1], row[2], row[3]))
+            workout.append((row[4], row[6]))
+            exercise_set.append((row[4], row[3], row[36], row[35], row[39], row[8]))
+            athlete_max.append((row[4], row[3], row[34]))
+        else:
+            print('\n\nWorking\n\n');
 
             ##print(row[0],row[1],row[2],)
 
