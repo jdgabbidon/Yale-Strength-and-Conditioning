@@ -5,10 +5,7 @@ import csv
 filename = "data.csv"
 
 
-athlete = []
-workout = []
-exercise_set = []
-athlete_max = []
+lst = []
 
 with open('data.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
@@ -16,36 +13,15 @@ with open('data.csv') as csvfile:
         if (row[3] == "Day " or row[3] == "Day"):
             print("\n\nWORKING\n\n")
             continue
-        athlete.append((row[1], row[2], row[3]))
-        workout.append((row[4], row[6]))
-        exercise_set.append((row[4], row[3], row[36], row[35], row[39], row[8]))
-        athlete_max.append((row[4], row[3], row[34]))
-
+        lst.append((row[1], row[2], row[3]))
+            ## print(row[0])
             ##print(row[0],row[1],row[2],)
 
-athlete = list(set(athlete))
-workout = list(set(workout))
-exercise_set = list(set(exercise_set))
-athlete_max = list(set(athlete_max))
+lst = list(set(lst))
 
 with open('athlete.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     ##quotechar='|', quoting=csv.QUOTE_MINIMAL
-    for row in athlete:
-        writer.writerow([row[0], row[1], row[2]])
-with open('workout.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=',')
-    ##quotechar='|', quoting=csv.QUOTE_MINIMAL
-    for row in workout:
-        writer.writerow([row[0], row[1]])
-with open('exercise_set.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=',')
-    ##quotechar='|', quoting=csv.QUOTE_MINIMAL
-    for row in exercise_set:
-        writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5]])
-with open('athlete_max.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=',')
-    ##quotechar='|', quoting=csv.QUOTE_MINIMAL
-    for row in athlete_max:
+    for row in lst:
         writer.writerow([row[0], row[1], row[2]])
         
