@@ -26,7 +26,7 @@ with open('data.csv') as csvfile:
 ##Converting each array to list to eliminate duplicates
 athlete = list(set(athlete))
 workout = list(set(workout))
-exercise_set = list(set(exercise_set))
+exercise_set = list(set(exercise_set)) ##PROBLEMATIC since you can have multiple sets with identical data. Need to change.
 athlete_max = list(set(athlete_max))
 
 ##Writing athlete.csv
