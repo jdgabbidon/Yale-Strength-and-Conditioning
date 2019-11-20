@@ -1,0 +1,24 @@
+# importing csv module
+import csv
+  
+# csv file name
+filename = "data.csv"
+
+
+lst = []
+
+with open('data.csv') as csvfile:
+    readCSV = csv.reader(csvfile, delimiter=',')
+    for row in readCSV:
+        lst.append((row[1], row[2], row[3]))
+            ## print(row[0])
+            ##print(row[0],row[1],row[2],)
+
+print(lst)
+lst = list(set(lst))
+
+with open('athlete.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile, delimiter=',')
+    ##quotechar='|', quoting=csv.QUOTE_MINIMAL
+    for row in lst:
+        writer.writerow([row[0], row[1], row[2]])
