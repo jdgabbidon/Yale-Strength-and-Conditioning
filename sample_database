@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: athlete; Type: TABLE; Schema: public; Owner: jalengabbidon
+-- Name: athlete; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.athlete (
@@ -31,10 +31,8 @@ CREATE TABLE public.athlete (
 );
 
 
-ALTER TABLE public.athlete OWNER TO jalengabbidon;
-
 --
--- Name: athlete_max; Type: TABLE; Schema: public; Owner: jalengabbidon
+-- Name: athlete_max; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.athlete_max (
@@ -44,10 +42,8 @@ CREATE TABLE public.athlete_max (
 );
 
 
-ALTER TABLE public.athlete_max OWNER TO jalengabbidon;
-
 --
--- Name: exercise_set; Type: TABLE; Schema: public; Owner: jalengabbidon
+-- Name: exercise_set; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.exercise_set (
@@ -60,10 +56,8 @@ CREATE TABLE public.exercise_set (
 );
 
 
-ALTER TABLE public.exercise_set OWNER TO jalengabbidon;
-
 --
--- Name: workout; Type: TABLE; Schema: public; Owner: jalengabbidon
+-- Name: workout; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.workout (
@@ -72,10 +66,8 @@ CREATE TABLE public.workout (
 );
 
 
-ALTER TABLE public.workout OWNER TO jalengabbidon;
-
 --
--- Data for Name: athlete; Type: TABLE DATA; Schema: public; Owner: jalengabbidon
+-- Data for Name: athlete; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.athlete (athlete_id, first_name, last_name) FROM stdin;
@@ -159,7 +151,7 @@ COPY public.athlete (athlete_id, first_name, last_name) FROM stdin;
 
 
 --
--- Data for Name: athlete_max; Type: TABLE DATA; Schema: public; Owner: jalengabbidon
+-- Data for Name: athlete_max; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.athlete_max (athlete_id, workout_id, max) FROM stdin;
@@ -5069,7 +5061,7 @@ COPY public.athlete_max (athlete_id, workout_id, max) FROM stdin;
 
 
 --
--- Data for Name: exercise_set; Type: TABLE DATA; Schema: public; Owner: jalengabbidon
+-- Data for Name: exercise_set; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.exercise_set (workout_id, athlete_id, exercise_name, total_tonage, rep_count, date) FROM stdin;
@@ -10016,7 +10008,7 @@ COPY public.exercise_set (workout_id, athlete_id, exercise_name, total_tonage, r
 
 
 --
--- Data for Name: workout; Type: TABLE DATA; Schema: public; Owner: jalengabbidon
+-- Data for Name: workout; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY public.workout (workout_id, exercise_name) FROM stdin;
