@@ -16,7 +16,7 @@ with open('data.csv') as csvfile:
         if row[3].isdigit():
             athlete.append((row[1], row[2], row[3]))
             workout.append((row[4], row[6]))
-            exercise_set.append((row[4], row[3], row[36], row[35], row[39], row[8]))
+            exercise_set.append((row[4], row[3], row[6], row[8],  row[36], row[35], row[39]))
             athlete_max.append((row[4], row[3], row[34]))
         else:
             print('\n\nWorking\n\n');
@@ -42,9 +42,10 @@ with open('exercise_set.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     ##quotechar='|', quoting=csv.QUOTE_MINIMAL
     for row in exercise_set:
-        writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5]])
+        writer.writerow([row[0], row[1], row[2], row[3], row[4], row[5], row[6]])
 with open('athlete_max.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',')
     ##quotechar='|', quoting=csv.QUOTE_MINIMAL
     for row in athlete_max:
-        writer.writerow([row[0], row[1], row[2]])
+        if row[2].isdigit():
+            writer.writerow([row[0], row[1], row[2]])
