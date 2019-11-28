@@ -8,5 +8,8 @@ Tutorial on how to install PostgreSQL on Macintosh here:
 Command to change dump file into database:
 ```
   psql dbname < infile
+  
+  *dbname = name of previously created database
+  *infile is name up dump file
 ```
-where dbname is the name of a previously created database, and infline is the name of the dumpfile you want to convert to a databse. 
+
