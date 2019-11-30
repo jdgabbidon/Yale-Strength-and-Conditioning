@@ -1,42 +1,82 @@
 
+
+//server
+const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(cors());
+
+app.get("/getValues", async (request, response) => {
+
+    response.send(await pushValues());
+    
+});
+
+app.get("/", async (request, response) => {
+
+    response.sendFile(__dirname + "/webApp.html");
+    
+});
+
+app.get("/js/scripts.js", async (request, response) => {
+
+    response.sendFile(__dirname + "/js/scripts.js");
+    
+});
+
+
+app.listen(8080,() =>{
+    console.log("express is running");
+});
+
+
 //populate arr by connecting to PostGress Database
 const pg = require('pg');
 
 const cs = 'postgres://seunomonije:password@localhost:5432/gainz';
 
-const client = new pg.Client(cs);
-client.connect();
 
 
-const athleteObj = {
-	'id': "",
-	'firstName': "",
-	'lastName': ""
-};
 
 var athleteArray = [];
-function populateArr(){
-	client.query('SELECT * FROM athlete').then(res => {
+async function populateArr(){
 
+    const client = new pg.Client(cs);
+    client.connect();
+
+    let arr = [];
+	var res = await client.query('SELECT * FROM athlete')
     const data = res.rows;
+    //console.log(data);
+
     data.forEach(row => {
-        //console.log(row);
-        athleteObj.id = row.athlete_id;
-        athleteObj.firstName = row.first_name;
-        athleteObj.lastName = row.last_name;
+        var athleteObj = {
+            'id': row.athlete_id,
+            'firstName': row.first_name,
+            'lastName': row.last_name
+        };
 
         //doesn't work
-        athleteArray.push(athleteObj);
+        arr.push(athleteObj);
 
+
+        //setValue(row.athlete_id);
         //works..i think query functions act independently from the rest of the program
-        console.log(athleteObj);
-
+        //console.log(athleteObj);
     })
-}).finally(() => {
-    client.end()
-});
+    client.end();
+    return arr;
 }
-populateArr();
 
-//prints empty array
-console.log(athleteArray);
+async function pushValues() {
+    return {
+        vals: await populateArr()
+    }
+    //console.log(athleteArray);
+}
+// const vals;
+// pushValues().then(arr => {
+//     vals = arr;
+//     console.log(vals);
+// });
+//prints empty at
