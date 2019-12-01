@@ -2,9 +2,14 @@
 
 Make sure to git pull/git fetch before pushing.
 
-## Required software:
-- node.js
-- homebrew (for psql)
+## Required downloads/Instructions:
+
+### Required downloads
+- node.js at https://nodejs.org/en/download/
+- homebrew using the command:
+ `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+ 
+
     
 #### Database Management:
 *Tutorial on how to install PostgreSQL on Macintosh here:*
