@@ -2,13 +2,12 @@
 
 Make sure to git pull/git fetch before pushing.
 
-## Required downloads/Instructions (Mac only):
 
-### Required downloads
+## Required downloads
 - node.js at https://nodejs.org/en/download/
 - homebrew using the command: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
  
-### Instructions
+## Instructions
     
 #### Database Management:
 *Tutorial on how to install PostgreSQL on Macintosh here:*
