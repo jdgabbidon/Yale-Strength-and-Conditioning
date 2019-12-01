@@ -22,4 +22,4 @@ Make sure to git pull/git fetch before pushing.
 node structures.js
 ``` 
 
-##### webApp is running at http://localhost:8080
+##### after starting server, webApp may be accessed at: http://localhost:8080
