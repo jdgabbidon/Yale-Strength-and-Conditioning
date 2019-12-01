@@ -23,14 +23,12 @@ async function populate(){
 
 	let obj = await response.json();
 	//console.log(data);
-	let data = obj.vals;
-
+	let athleteData = obj.athletes;
+	let workoutData = obj.workouts;
 	/* athlete */
-	var min = 12,
-    max = 100,
     select = document.getElementById('athleteName');
 
-    data.forEach(object => {
+    athleteData.forEach(object => {
     	let opt = document.createElement('option');
     	opt.value = object.id;
     	opt.innerHTML = object.firstName + " " + object.lastName;
@@ -43,12 +41,12 @@ async function populate(){
     max = 100,
     select = document.getElementById('exerciseName');
 
-	for (var i = min; i<=max; i++){
-	    var opt = document.createElement('option');
-	    opt.value = i;
-	    opt.innerHTML = i;
-	    select.appendChild(opt);
-	}
+    workoutData.forEach(object => {
+    	let opt = document.createElement('option');
+    	opt.value = object.exerciseName;
+    	opt.innerHTML = object.exerciseName;
+    	select.appendChild(opt);
+    })
 
 	/* other */
 	var min = 12,
@@ -63,8 +61,17 @@ async function populate(){
 
 	}
 
+}
 
+async function getTotalPerExercise(){
 
+	let athleteId = document.getElementById('athleteName').value;
+	let exerciseName = document.getElementById('exerciseName').value;
 
+	console.log(athleteId);
+	
+	let response = await fetch("http://localhost:8080/getTotalHistory?athleteId=" + athleteId + "&exerciseName=" + exerciseName);
+
+	console.log(await response.json());
 }
 

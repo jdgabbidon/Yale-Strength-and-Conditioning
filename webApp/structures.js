@@ -6,9 +6,22 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
+
+//for population of select elements
 app.get("/getValues", async (request, response) => {
 
     response.send(await pushValues());
+    
+});
+
+
+//for sending selected element back
+app.get("/getTotalHistory", async (request, response) => {
+
+    let id = request.query.athleteId; 
+    let name = request.query.exerciseName;
+    console.log(name);
+    response.send(await getTotalHistory(id, name));
     
 });
 
@@ -18,6 +31,8 @@ app.get("/", async (request, response) => {
     
 });
 
+
+
 app.get("/js/scripts.js", async (request, response) => {
 
     response.sendFile(__dirname + "/js/scripts.js");
@@ -25,21 +40,17 @@ app.get("/js/scripts.js", async (request, response) => {
 });
 
 
+//server running
 app.listen(8080,() =>{
     console.log("express is running");
 });
 
 
-//populate arr by connecting to PostGress Database
-const pg = require('pg');
 
+const pg = require('pg');
 const cs = 'postgres://seunomonije:password@localhost:5432/gainz';
 
-
-
-
-var athleteArray = [];
-async function populateArr(){
+async function populateArrAthlete(){
 
     const client = new pg.Client(cs);
     client.connect();
@@ -56,27 +67,66 @@ async function populateArr(){
             'lastName': row.last_name
         };
 
-        //doesn't work
+        //pushing Objects
         arr.push(athleteObj);
 
-
-        //setValue(row.athlete_id);
-        //works..i think query functions act independently from the rest of the program
-        //console.log(athleteObj);
     })
     client.end();
     return arr;
 }
 
+async function populateArrExercises(){
+
+    const client = new pg.Client(cs);
+    client.connect();
+
+    let arr = [];
+    var res = await client.query('SELECT * FROM workout')
+    let data = res.rows;
+    //console.log(data);
+    data.sort((a,b) => {
+  
+        return a.exercise_name.localeCompare(b.exercise_name)
+    });
+
+  
+
+    data.forEach(row => {
+        var exerciseObj = {
+            'exerciseName': row.exercise_name
+        };
+
+        //pushing Objects
+        arr.push(exerciseObj);
+
+    })
+
+    jsonObject = arr.map(JSON.stringify);
+
+    uniqueSet = new Set(jsonObject);
+    uniqueArray = Array.from(uniqueSet).map(JSON.parse);
+
+    console.log(uniqueArray);
+
+    client.end();
+    return uniqueArray;
+}
+
 async function pushValues() {
     return {
-        vals: await populateArr()
+        athletes: await populateArrAthlete(),
+        workouts: await populateArrExercises(),
     }
-    //console.log(athleteArray);
 }
-// const vals;
-// pushValues().then(arr => {
-//     vals = arr;
-//     console.log(vals);
-// });
-//prints empty at
+
+async function getTotalHistory(athleteId, exerciseName){
+    const client = new pg.Client(cs);
+    client.connect();
+
+    var res = await client.query('SELECT * FROM exercise_set WHERE exercise_set.athlete_id=\'' + athleteId + '\' AND exercise_set.exercise_name=\'' + exerciseName + '\'');
+    let data = res.rows;
+    return data;
+}
+
+
+
