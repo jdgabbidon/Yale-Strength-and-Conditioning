@@ -9,7 +9,7 @@
 
 <h1>Strength Selector</h1>
 
-<p id = "demo">Enter Info</p>
+<p id = "demo">Enter Info:</p>
 
 <button onclick=populate()>Populate</button>
 
@@ -17,12 +17,28 @@
 <div>
 <select id="athleteName" class="selects"></select>
 <select id="exerciseName" class="selects"></select>
-<select id="otherName" class="selects"></select>
 </div>
 
 <button onclick=getTotalPerExercise()>Submit</button>
+
 <div>
-	<p id = "results">Results</p>
+<p>Available Dates:</p>
+<select id="dates" class="selects"></select>
 </div>
+
+<div>
+	<h3 id="results" style="text-decoration: underline;">Results</h3>
+</div>
+
+
+
+<div>
+	<h3 style="font-weight: normal;">Tonage Per Selected Exercise On Selected Day</h3>
+	<p id="tonage"></p>
+</div>
+
+
+
+
 </body>
 </html>

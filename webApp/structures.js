@@ -20,7 +20,6 @@ app.get("/getTotalHistory", async (request, response) => {
 
     let id = request.query.athleteId; 
     let name = request.query.exerciseName;
-    console.log(name);
     response.send(await getTotalHistory(id, name));
     
 });
@@ -60,6 +59,13 @@ async function populateArrAthlete(){
     const data = res.rows;
     //console.log(data);
 
+    //sorting
+    data.sort((a,b) => {
+  
+        return a.first_name.localeCompare(b.first_name)
+    });
+
+
     data.forEach(row => {
         var athleteObj = {
             'id': row.athlete_id,
@@ -83,7 +89,8 @@ async function populateArrExercises(){
     let arr = [];
     var res = await client.query('SELECT * FROM workout')
     let data = res.rows;
-    //console.log(data);
+    
+    //sorting
     data.sort((a,b) => {
   
         return a.exercise_name.localeCompare(b.exercise_name)
@@ -127,6 +134,5 @@ async function getTotalHistory(athleteId, exerciseName){
     let data = res.rows;
     return data;
 }
-
 
 

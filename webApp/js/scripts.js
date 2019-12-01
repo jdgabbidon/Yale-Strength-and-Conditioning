@@ -18,13 +18,14 @@ async function populate(){
 
 	//fetching
 	let response = await fetch("http://localhost:8080/getValues");
-	//console.log(await data.json());
-	//will be query function
+	
 
 	let obj = await response.json();
 	//console.log(data);
 	let athleteData = obj.athletes;
 	let workoutData = obj.workouts;
+
+
 	/* athlete */
     select = document.getElementById('athleteName');
 
@@ -36,9 +37,7 @@ async function populate(){
     });
 
 
-	/*exercise */
-	var min = 12,
-    max = 100,
+	/*exercises */
     select = document.getElementById('exerciseName');
 
     workoutData.forEach(object => {
@@ -48,30 +47,48 @@ async function populate(){
     	select.appendChild(opt);
     })
 
-	/* other */
-	var min = 12,
-    max = 100,
-    select = document.getElementById('otherName');
 
-	for (var i = min; i<=max; i++){
-	    var opt = document.createElement('option');
-	    opt.value = i;
-	    opt.innerHTML = i;
-	    select.appendChild(opt);
 
-	}
+
 
 }
 
+//to convert dates
+function dateConverter(excelDate){
+    return new Date((excelDate - (25567 + 2))*86400*1000);
+}
+
+    
+
+//this creates the data filed
 async function getTotalPerExercise(){
 
 	let athleteId = document.getElementById('athleteName').value;
 	let exerciseName = document.getElementById('exerciseName').value;
 
 	console.log(athleteId);
-	
+
 	let response = await fetch("http://localhost:8080/getTotalHistory?athleteId=" + athleteId + "&exerciseName=" + exerciseName);
 
-	console.log(await response.json());
+	/* other */
+    let select = document.getElementById('dates');
+    let tonage = document.getElementById("tonage");
+    select.innerHTML = "";
+	select.addEventListener("change", () => {
+    	tonage.innerHTML = select.value;
+	});
+
+
+    let exerciseSetData = await response.json();
+
+    exerciseSetData.forEach(object => {
+    	let opt = document.createElement('option');
+    	opt.value = object.total_tonage;
+    	var newDate = object.date.replace(/[, ]+/g, "").trim();
+    	console.log(newDate);
+    	opt.innerHTML = dateConverter(parseInt(newDate)).toDateString();
+    	select.appendChild(opt);
+    });
+    tonage.innerHTML = select.value;
 }
 
