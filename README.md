@@ -5,10 +5,6 @@ Make sure to git pull/git fetch before pushing.
 ## Required software:
 - node.js
 - homebrew (for psql)
-
-### TODO:
-- create executable for easy use.
-- allow for easy import of new csv files for conversion to database
     
 #### Database Management:
 *Tutorial on how to install PostgreSQL on Macintosh here:*
@@ -27,3 +23,8 @@ node structures.js
 ``` 
 
 ##### After starting server, webApp may be accessed at: http://localhost:8080
+
+
+## TODO:
+- create executable for easy use.
+- allow for easy import of new csv files for conversion to database
