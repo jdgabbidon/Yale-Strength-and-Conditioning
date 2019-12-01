@@ -20,8 +20,6 @@ Make sure to git pull/git fetch before pushing.
 ##### Command to start server (must start before running application): 
 ```
 node structures.js
-
-//^c to properly close
 ``` 
 
 ##### webApp is running at http://localhost:8080
