@@ -8,7 +8,7 @@ Make sure to git pull/git fetch before pushing.
 - node.js at https://nodejs.org/en/download/
 - homebrew using the command: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
  
-
+### Instructions
     
 #### Database Management:
 *Tutorial on how to install PostgreSQL on Macintosh here:*
