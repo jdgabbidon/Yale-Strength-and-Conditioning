@@ -2,7 +2,7 @@
 
 Make sure to git pull/git fetch before pushing.
 
-## Required downloads/Instructions (Mac support only):
+## Required downloads/Instructions (Mac only):
 
 ### Required downloads
 - node.js at https://nodejs.org/en/download/
