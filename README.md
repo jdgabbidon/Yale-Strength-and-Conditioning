@@ -1,15 +1,27 @@
-Yale Strength and Conditioning Web App
+## Yale Strength and Conditioning Web App. PLEASE READ!!!
 
 Make sure to git pull/git fetch before pushing.
 
-Tutorial on how to install PostgreSQL on Macintosh here: 
+### TODO:
+- create executable for easy use.
+- allow for easy import of new csv files for conversion to database
+    
+#### Database Management:
+*Tutorial on how to install PostgreSQL on Macintosh here:*
   https://www.robinwieruch.de/postgres-sql-macos-setup
-  
-Command to change dump file into database:
+ 
+##### Command to change dump file into database:
 ```
   psql dbname < infile
-  
-  *dbname = name of previously created database
-  *infile is name up dump file
 ```
 
+#### Web Application:
+
+##### Command to start server (must start before running application): 
+```
+node structures.js
+
+//^c to properly close
+``` 
+
+##### webApp is running at http://localhost:8080
