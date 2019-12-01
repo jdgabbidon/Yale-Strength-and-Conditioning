@@ -6,8 +6,7 @@ Make sure to git pull/git fetch before pushing.
 
 ### Required downloads
 - node.js at https://nodejs.org/en/download/
-- homebrew using the command:
- `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+- homebrew using the command: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
  
 
     
