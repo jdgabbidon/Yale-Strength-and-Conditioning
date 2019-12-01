@@ -1,4 +1,4 @@
-# Yale Strength and Conditioning Web App. PLEASE READ!!!
+# Yale Strength and Conditioning Web App PLEASE READ!!!
 
 Make sure to git pull/git fetch before pushing.
 
