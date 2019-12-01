@@ -1,6 +1,10 @@
-## Yale Strength and Conditioning Web App. PLEASE READ!!!
+# Yale Strength and Conditioning Web App. PLEASE READ!!!
 
 Make sure to git pull/git fetch before pushing.
+
+## Required software:
+- node.js
+- homebrew (for psql)
 
 ### TODO:
 - create executable for easy use.
