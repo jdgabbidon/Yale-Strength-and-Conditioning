@@ -79,9 +79,9 @@ async function getTotalPerExercise(){
 	});
 
 
-    let exerciseSetData = await response.json();
+    let exerciseDayData = await response.json();
 
-    exerciseSetData.forEach(object => {
+    exerciseDayData.forEach(object => {
     	let opt = document.createElement('option');
     	opt.value = object.total_tonage;
     	var newDate = object.date.replace(/[, ]+/g, "").trim();
@@ -90,5 +90,42 @@ async function getTotalPerExercise(){
     	select.appendChild(opt);
     });
     tonage.innerHTML = select.value;
+}
+
+//spitting out data in rows
+async function addRow(){
+
+	let athleteId = document.getElementById('athleteName').value;
+	let exerciseName = document.getElementById('exerciseName').value;
+
+  	let response = await fetch("http://localhost:8080/getAllWorkouts?athleteId=" + athleteId + "&exerciseName=" + exerciseName);
+
+  	let tableRef = document.getElementById("dataTable");
+
+  	let exerciseDayData = await response.json();
+
+  	exerciseDayData.forEach(row => {
+
+  	console.log(row);
+  	let newRow = tableRef.insertRow(-1); //insert a row at the end of the table
+
+  	let cell0 = newRow.insertCell(0); //insert a cell in the row at index 0
+  	let newText = document.createTextNode(dateConverter(parseInt(row.date)).toDateString()); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	cell0 = newRow.insertCell(1); //insert a cell in the row at index 0
+  	newText = document.createTextNode(row.exercise_name); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	cell0 = newRow.insertCell(2); //insert a cell in the row at index 0
+  	newText = document.createTextNode(row.rep_count); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	cell0 = newRow.insertCell(3); //insert a cell in the row at index 0
+  	newText = document.createTextNode(row.total_tonage); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	});
+  	
 }
 

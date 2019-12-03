@@ -7,6 +7,8 @@ const app = express();
 app.use(cors());
 
 
+
+
 //for population of select elements
 app.get("/getValues", async (request, response) => {
 
@@ -21,6 +23,15 @@ app.get("/getTotalHistory", async (request, response) => {
     let id = request.query.athleteId; 
     let name = request.query.exerciseName;
     response.send(await getTotalHistory(id, name));
+    
+});
+
+//for gettingAllWorkouts
+app.get("/getAllWorkouts", async (request, response) => {
+
+    let id = request.query.athleteId; 
+    let name = request.query.exerciseName;
+    response.send(await getAllWorkouts(id, name));
     
 });
 
@@ -47,7 +58,7 @@ app.listen(8080,() =>{
 
 
 const pg = require('pg');
-const cs = 'postgres://seunomonije:password@localhost:5432/gainz';
+const cs = 'postgres://seunomonije:password@localhost:5432/gainz2';
 
 async function populateArrAthlete(){
 
@@ -113,8 +124,6 @@ async function populateArrExercises(){
     uniqueSet = new Set(jsonObject);
     uniqueArray = Array.from(uniqueSet).map(JSON.parse);
 
-    console.log(uniqueArray);
-
     client.end();
     return uniqueArray;
 }
@@ -130,8 +139,18 @@ async function getTotalHistory(athleteId, exerciseName){
     const client = new pg.Client(cs);
     client.connect();
 
-    var res = await client.query('SELECT * FROM exercise_set WHERE exercise_set.athlete_id=\'' + athleteId + '\' AND exercise_set.exercise_name=\'' + exerciseName + '\'');
+    var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName + '\'');
     let data = res.rows;
+    return data;
+}
+
+async function getAllWorkouts(athleteId, exerciseName){
+    const client = new pg.Client(cs);
+    client.connect();
+
+    var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName + '\' ORDER BY date DESC');
+    let data = res.rows;
+    console.log(data);
     return data;
 }
 
