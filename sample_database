@@ -74,86 +74,82 @@ CREATE TABLE public.workout (
 --
 
 COPY public.athlete (athlete_id, first_name, last_name) FROM stdin;
-163657	Conte	Patrick
-163398	Shohfi	John
-363929	McElwain	Elliott
-163675	Dean	John
-163408	Westafer	Jonathan
-163364	Lamar	Alan
-163151	Dixon	Malcolm
-163373	Matthaei	Spencer
-163128	Alburg	Jaelin
-163672	Awodiran	Micah
-163669	Ryan	Andrew
-363930	Nickerson	Reid
-163652	Check	Jimmy
-363942	Tibbetts	Nick
-163403	Strother	Sterling
-163659	Roman	D. Major
-163674	Warfield	Cameron
-363921	Aaron	Noah
-163158	Eiselen	Dieter
-163666	Dudek	Zane
-363935	Omonije	Seun
-363926	Gargiulo	Nick
-Day		
-163670	Hinish	Jacob
-363932	O'Connor	Griffin
-163369	MacPhee	Brendan
-363938	Raymond	Garry
-163358	Klubnik	Reed
-163662	Sampleton	Christian
-363925	Frommer	Shane
-369095	Ellis	Kyle
-163656	Hill	Blake
-362371	Dunham	Isaiah
-374334	Sandifer	Jaylan
-363966	Charles	Trenton
-368725	Ifesinachukwu	Osorachukwu
-163355	Keeler	Joshua
-363934	Oldacre	Miles
-362372	Kosmalski	Kennedy
-363937	Raine	Adam
-163660	Carrington	Darrion
-163142	Cepalia	Steven
-163665	Carey	Jordan
-163405	Tribble	Lucas
-402566	Pope	Noah
-163357	Kissel	Sean
-163174	Herring	Caden
-163139	Callender	Charles
-163664	Jost	Tyler
-363965	Bruno	Sebastian
-163127	Agbeyegbe	Tosan
-163663	Neagli	Grant
-Day 		
-368780	Goodyear	Tate
-163388	Rawlings	Kurt
-163668	Thomas	Rodney
-363944	Hickey	Dathan
-163126	Abelite	Alexander
-368903	Granberry	Jaylan
-163676	Howland	JJ
-361496	Gerber	Brett
-163661	Hoban	Sasha
-363940	Smith	Conor
-402565	Culhane	Ajay
-163763	Rouse	Melvin
-163396	Segel	Henry
-368961	Alston	Spencer
-163406	Tuckerman	Sam
-163138	Burke	Ryan
-163380	Moore	Devin
-369635	Abraham	Brian
-		
-163654	Henson	Deonte'
-363939	Schuller	Cubby
-169385	White	Garrett
-163658	Chime	Michael
-363924	De St. Jean	Josh
-User ID	Last Name	First Name
-163148	Dawson	Quinn
-163397	Sexton	Jarrett
+163398	John	Shohfi
+163174	Caden	Herring
+363939	Cubby	Schuller
+363940	Conor	Smith
+163408	Jonathan	Westafer
+163676	JJ	Howland
+363935	Seun	Omonije
+368725	Osorachukwu	Ifesinachukwu
+363932	Griffin	O'Connor
+362372	Kennedy	Kosmalski
+363938	Garry	Raymond
+163763	Melvin	Rouse
+362371	Isaiah	Dunham
+163126	Alexander	Abelite
+163139	Charles	Callender
+163662	Christian	Sampleton
+163380	Devin	Moore
+163148	Quinn	Dawson
+169385	Garrett	White
+368780	Tate	Goodyear
+163652	Jimmy	Check
+363965	Sebastian	Bruno
+163358	Reed	Klubnik
+163405	Lucas	Tribble
+402565	Ajay	Culhane
+163659	D. Major	Roman
+163660	Darrion	Carrington
+163357	Sean	Kissel
+163396	Henry	Segel
+163663	Grant	Neagli
+361496	Brett	Gerber
+363925	Shane	Frommer
+163669	Andrew	Ryan
+163142	Steven	Cepalia
+363929	Elliott	McElwain
+402566	Noah	Pope
+163661	Sasha	Hoban
+363930	Reid	Nickerson
+163373	Spencer	Matthaei
+163138	Ryan	Burke
+363924	Josh	De St. Jean
+163658	Michael	Chime
+163657	Patrick	Conte
+363944	Dathan	Hickey
+163665	Jordan	Carey
+163151	Malcolm	Dixon
+368903	Jaylan	Granberry
+363934	Miles	Oldacre
+163672	Micah	Awodiran
+374334	Jaylan	Sandifer
+163664	Tyler	Jost
+163406	Sam	Tuckerman
+369095	Kyle	Ellis
+163369	Brendan	MacPhee
+163654	Deonte'	Henson
+163127	Tosan	Agbeyegbe
+163128	Jaelin	Alburg
+163158	Dieter	Eiselen
+163668	Rodney	Thomas
+163675	John	Dean
+163388	Kurt	Rawlings
+363966	Trenton	Charles
+368961	Spencer	Alston
+163403	Sterling	Strother
+163674	Cameron	Warfield
+163355	Joshua	Keeler
+163397	Jarrett	Sexton
+363926	Nick	Gargiulo
+363921	Noah	Aaron
+363937	Adam	Raine
+163364	Alan	Lamar
+163666	Zane	Dudek
+363942	Nick	Tibbetts
+369635	Brian	Abraham
+163656	Blake	Hill
+163670	Jacob	Hinish
 \.
 
 
@@ -11044,602 +11040,602 @@ COPY public.exercise_set (workout_id, athlete_id, exercise_name, date, weight, r
 --
 
 COPY public.workout (workout_id, exercise_name) FROM stdin;
-75326254	DB Seated Hold
-75124817	Rope Curls
-76572303	Pit Shark Squat
-77706530	PVC Wrestle
-75124826	Hang Clean
-75326242	Seated Cable Row
-65346274	Off Bench Obliques
-74415221	Chest Supported Row
-75606988	Cable Face-Pulls
-76443372	Lat Pull-Down
-73962066	Giordando Row
-65346274	Front Plank
-65346244	DB Overhead Shrugs
-73995620	Barbell Deadlift
-73959457	Physioball Cable Rotations
-70738451	DB Step-Ups
-65346243	DB Bench Press
-74677380	Heavy Chin-Ups
-70738444	Hypers
-75028648	DB Rear Delt Fly
-75596905	Heavy Chin-Ups
-77706525	DB Goblet Squat
-70738517	Single Leg RDL
-75326249	4-Way Neck
-65346183	DB Incline Bench Press
-70738463	Leg Press
-75124829	MedBall Squat Jump
-76142452	Seated Leg Extentions
-76572306	Cable Fat Grip Wide Row
-76157957	Chest Supported Row
-75326250	Heavy Chin-Ups
-74378721	Physioball Hypers
-65346272	Seated Cable Row
-75028643	Leg Press
-70738527	Reverse Plank
-65346219	Seated Cable Row
-77706526	DB Close Grip Bench
-76572298	Barbell Bench Press
-65346224	Leg Lowers
-75326249	Ab Wheel Rollouts
-70738498	DB RFE Squat
-65346190	Lat Pull-Down
-70738461	Cable Punch
-74413374	Pull-Ups
-70738520	Deadbugs
-75326246	Shoulder 30's
-76817367	Wide Grip Pulldown Fat Grip
-76572311	Chest Supported Row
-74678290	Seated DB Hold
-65346203	Barbell Close Grip Bench Press
-75326246	TIYW's
-65346277	Chest Supported Row
-74677802	Lat Pull-Down
-74677802	Lat Pull-down
-70738516	Goblet Squat
-70738478	Hamstring Curl Machine
-75606987	Seated Cable Row
-75326258	Barbell Back Squat
-75606991	DB Rear Delt Fly
-65346238	Barbell Close Grip Bench Press
-65346192	DB Upright Row
-74378602	Seated Cable Row
-65346285	Reverse Hypers
-73959110	Cable Face-Pulls
-75035817	DB Reverse Fly
-74378561	TIYW's
-76572311	Single-Arm Lat-Pulldown
-65346251	Bent Knee Ankle Touches
-70738456	Off Bench Obliques
-76572309	Barbell Romanian Deadlift
-75028645	Single-Arm Landmine Row
-75326274	Wide Grip Pulldown Fat Grip
-74378727	Body Saw
-76443371	DB Incline Bench Press
-75326244	Split Stance Cable Punch
-70738526	Cable Punch
-77706527	Cable Wide Grip Seated Row
-74538501	Leg Press
-65346215	Reverse Hypers
-65346169	Russian Twist
-65346277	Lat Pull-Down
-74398020	DB Bent Over Row
-77558645	Pull-Ups
-65346222	Off Bench Obliques
-73957584	Palloff Press
-70738522	Hypers
-65346273	DB Close Grip Bench
-77558648	Physioball Pot Stirs
-73961081	Heavy Neutral Grip Chin Up
-74677802	Heavy Chin-Ups
-70738476	Leg Press
-76572294	Wide Grip Pulldown Fat Grip
-75124812	Ab Wheel Rollouts
-70738459	DB RFE Squat
-65346184	Chest Supported Row
-75035818	Single-Leg Deadlift
-74378555	Palloff Press
-75326262	Physioball Windshield Wipers
-75028629	Front Squat Speed Squat
-76676300	Seated Cable Row
-70738446	DB RFE Squat
-74412671	DB Bench Press
-75606986	Barbell Back Squat
-74414746	Supinated Grip Barbell Row
-75606990	Wide Grip Pulldown Fat Grip
-74400185	Barbell Bent Over Row
-75124813	Front Squat Speed Squat
-74412012	Barbell Back Squat
-74378564	Single-Arm Landmine Row
-76443370	Seated Cable Row
-73957588	Physioball Hypers
-70738521	Leg Lowers
-65346250	Reverse Hypers
-76572293	DB Romanian Deadlift
-75028634	Rope Triceps Pressdowns - Pronating Grip
-70738474	Push-Ups
-76676299	Barbell Bench Press
-70738518	Cable Fat Grip Low Row
-65346286	Bent Knee Ankle Touches
-65346216	Bent Knee Ankle Touches
-65346274	Side Plank
-65346284	V-Sit up
-65346179	V-Sit up
-70738437	Barbell Back Squat
-65346167	Seated Cable Row
-77706528	Wide Grip Pulldown Fat Grip
-75326252	Cable Split Stance Single Arm Rotating Row
-75326258	Hamstring Curl
-65346275	Side Plank
-75027913	Wide Grip Seated Cable Row
-70738478	Single Leg RDL
-70738490	Hamstring Curl Machine
-75124807	Barbell Back Squat
-75326234	DB Alternating Shoulder Press
-65346218	DB Shoulder Press
-77558716	Seated Cable Row
-65346218	Chest Supported Row
-74413448	DB Alternating Shoulder Press
-70738501	Cat-Camel
-77526620	Pull-Ups
-75326232	Physioball Hypers
-74678303	Physioball DeadBugs
-65346172	Lat Pull-Down
-76817367	Lat Pull-Down
-65346184	Seated Cable Row
-74378719	Shoulder 6-Pack
-74677492	Ab Wheel Rollouts
-65346173	DB Bench Press
-74378716	Hamstring Curl Machine
-65346185	Cable Face-Pulls
-76572312	DB Single Leg Romanian Deadlift
-75326261	Lat Pull-Down
-74678141	Chest Supported Row
-70738450	Leg Press
-70738455	Straight Leg Sit Up
-70738437	Leg Press
-75596905	Lat Pull-Down
-77526470	Barbell Incline Bench Press
-65346237	Seated Cable Row
-76572309	Hamstring Curl Machine
-76572300	Pull-Ups
-76572309	Trap Bar Deadlift
-70738464	DB Step-Ups
-65346171	Leg Lowers
-65346170	Straight leg situp
-77527164	Landmine Fat Grip Single-Arm Row
-76572309	Safety Bar Squat
-65346273	Lat Pull-Down
-70738465	Hamstring Curl Machine
-76145664	Hamstring Curl Machine
-75124829	Snap Down
-75028647	Wide Grip Pulldown Fat Grip
-65346209	TIYW's
-70738494	Deadbugs
-70738444	Reverse Crunch
-74068339	Single-Arm Landmine Row
-70738469	Leg Lowers
-65346235	DB Bench Press
-77543938	Physioball Pot Stirs
-75035819	Wide Grip Seated Cable Row
-75326275	DB Rear Delt Fly
-75606992	Reverse Crunch
-65346284	Front Plank
-70738474	Cable Punch
-74414746	Barbell Close Grip Incline Bench Press
-75124830	MedBall Slam
-70738454	Cable Scap Retractions
-70738467	Cable Scap Retractions
-76572313	Wide Grip Pulldown Fat Grip
-76572315	Reverse Crunch
-65346191	DB Bench Press
-65346206	Leg Lowers
-70738449	Reverse Plank
-65346174	DB Overhead Shrugs
-75124828	Single-Arm Landmine Rotational Press
-65346197	V-Sit up
-74378554	Shoulder 6-Pack
-75326263	Ab Wheel Rollouts
-70738466	DB Bent Over Row
-65346271	DB Incline Bench Press
-70738458	Single Leg RDL
-65346275	Straight leg situp
-70738525	Lat Pull-Down
-75124808	DB Incline Bench Press
-77559479	Seated Cable Row
-70738470	Hypers
-65346174	DB Upright Row
-70738524	DB RFE Squat
-74378718	DB Reverse Fly
-74378717	Seated Cable Row
-75124811	Physioball Windshield Wipers
-74378600	Barbell Deadlift
-75606988	DB Bench Press
-76572314	Cable Scap Retractions
-70738462	Reverse Plank
-75326230	Seated Leg Extentions
-70738477	DB Lunge
-65346244	TIYW's
-74378728	Cable Physioball Rotations
-75326245	Landmine Anti-Rotations
-76572304	Barbell Close Grip Incline Bench Press
-74398020	Barbell Bench Press
 75124828	Landmine Press
-70738490	Goblet Squat
-70738490	DB Reverse Walking Lunge
-73962073	Rope Tricep Pushdowns
-75124840	Pull-Ups
-73962071	Barbell Reverse Curl
-70738473	Lat Pull-Down
-75028632	Heavy Chin-Ups
-65346208	DB Bench Press
-77572828	Physioball Pot Stirs
-76572309	Leg Press
-70738460	Lat Pull-Down
 74678228	TIYW's
-75028630	Barbell Bench Press
-74414746	DB Incline Bench Press
-75596908	TIYW's
-75326271	Seated Cable Row
-70738498	Hamstring Curl Machine
-65346221	TIYW's
-77558720	TIYW's
-65346279	DB Upright Row
-74378552	Seated Cable Row
-65346218	DB Incline Bench Press
-75124810	Lat Pull-Down
-77558644	Barbell Incline Bench Press
-77558646	Seated Cable Row
-75028643	Barbell Back Squat
-70738491	Single Leg RDL
-77558721	Band Anti-Extension Crunch
-74378551	Hamstring Curl Machine
-75124843	Single-Arm Landmine Row
-70738493	Cable Scap Retractions
-76572295	Barbell Bent Over Row
-65346249	V-Sit up
-70738458	Hamstring Curl Machine
-76647599	DB Hammer Curls
-75124826	Seated Leg Extentions
-65346276	Leg Lowers
-74378723	Barbell Bench Press
-70738448	Push-Ups
-65346284	Physioball Plank Row
-75124844	DB Alternating Bench Press
-74378558	Barbell Bench Press
-75326254	wrist roller
-75028250	Seated Leg Extentions
-75326270	Pit Shark Squat
-77572829	Landmine Fat Grip Single-Arm Row
-73960159	Barbell Bench Press
-74413107	DB Walking Lunge
-75326250	Lat Pull-Down
-65346200	DB Bench Press
-74398020	Seated Cable Row
-65346204	Off Bench Obliques
-70738519	Cable Scap Retractions
-70738475	Cat-Camel
-76572299	Hamstring Curl Machine
-70738479	DB Bent Over Row
-75124816	Heavy Chin-Ups
-70738483	Bicycle Crunch
 74378553	DB Reverse Fly
-73959259	TIYW's
-65346166	DB Incline Bench Press
-70738523	Hamstring Curl Machine
-76572309	Barbell Back Squat
-70738518	DB Bent Over Row
-65346214	V-Sit up
-74409004	Barbell Shoulder Press
-77706529	Ab Wheel Rollouts
-75124826	Clean High Pull
-75326235	DB Single Arm Bent Over Row
-75596910	Front Plank
-65346188	Straight leg situp
-75124831	MedBall Chest Pass
-75326230	Pit Shark Squat
-65346192	DB Overhead Shrugs
-74414762	Wide Grip Seated Cable Row
-75124809	Seated Cable Row
-74378550	Barbell Deadlift
-74378568	Rope Tricep Pushdowns
-65346181	Bent Knee Ankle Touches
-75629209	Hamstring Curl Machine
-77559481	Physioball Pot Stirs
-73961084	DB Shoulder Press
-77558715	Pull-Ups
-76816793	DB Goblet Squat
-65346221	Barbell Close Grip Bench Press
-75326259	Barbell Incline Bench Press
-77558651	Band Anti-Extension Crunch
-74677448	Shoulder 30's
-73957546	Shoulder 6-Pack
-75326232	Hamstring Curl Machine
-74398125	DB Romanian Deadlift
-65346189	Leg Lowers
-70738471	Single Leg RDL
-70738499	Lat Pull-Down
-74677492	Deadbugs
-73958879	Barbell Bench Press
-70738445	Single Leg RDL
-75035820	Reverse Lunge to Landmine Press
-70738449	Cat-Camel
-75326245	Palloff Press
-70738465	Single Leg RDL
-65346279	Overhead Shrug
-65346240	Straight leg situp
-75326256	Physioball DeadBugs
-77558647	Landmine Single-Arm Press
-65346244	DB Upright Row
-75028633	Rope Curls
-75028645	DB Bench Press
-70738460	Single-Arm Lat-Pulldown
-75035823	Physioball V-Sit Rotations
-75596907	Cable Split Squat Single Arm Rotating Row
-75596695	Seated Cable Row
-65346238	Rope Tricep Pushdowns
-65346201	DB Incline Bench Press
-75028644	Seated Cable Row
-65346204	Russian Twist
-75326254	Plate Pinch
-76676301	V Grip Lat Pulldown
-77558718	Physioball Pot Stirs
-65346202	Chest Supported Row
-75124846	Physioball V-Sit Rotations
-70738471	Hamstring Curl Machine
-77526470	DB Incline Bench Press
-65346199	Bent Knee Ankle Touches
-70738445	Hamstring Curl Machine
-65346242	Lat Pull-Down
-70738482	Off Bench Obliques
-65346273	Barbell Close Grip Bench Press
-65346217	Cable Scap Retractions
-75326264	Front Squat Speed Squat
-75027963	DB Single-Leg Romanian Deadlift
-75326234	DB Lateral Raises
-75596911	Physioball DeadBugs
-75124814	Barbell Bench Press
-75027963	Seated Leg Extentions
-65346236	DB Incline Bench Press
-75027963	Hamstring Curl
-75606986	Trap Bar Deadlift
-74397991	Pit Shark Squat
-65346209	DB Shrug
-74678211	Split Stance Rotating Single-Arm Cable Row
-75326253	TIYW's
-70738475	Reverse Plank
-77556311	DB Over & Back Lunges
-73996153	Landmine Anti-Rotations
-75326270	Trap Bar Deadlift
-75596909	DB Seated Hold
-75326258	Seated Leg Extentions
-65346278	DB Bench Press
-75326270	Hamstring Curl Machine
-75326249	Front Plank
-76572314	DB Rear Delt Fly
 74414523	Pit Shark Squat
-75124842	Wide Grip Seated Cable Row
-74412671	Seated Cable Row
-74677408	Kneeling Cable Punch
-70738517	Hamstring Curl Machine
-76142454	Hamstring Curl Machine
-77558717	Landmine Single-Arm Press
-74378559	Wide Grip Pulldown Fat Grip
-76572308	Barbell Bent Over Row
-74677348	Seated Cable Row
-65346270	Barbell Bench Press
-65346209	DB Overhead Shrugs
-65346205	Straight leg situp
-74378566	Giordando Row
-75326272	DB Bench Press
-74378567	Barbell Reverse Curl
-74378560	Cable Face-Pulls
-77559480	Landmine Single-Arm Press
-70738448	Cable Punch
-75027963	DB Romanian Deadlift
-65346180	Reverse Hypers
-74413766	DB Single Arm Bent Over Row
-75326255	Front Plank
-74412671	Barbell Bench Press
-76572309	Pit Shark Squat
-70738500	Cable Punch
-74415214	Landmine Press
-73957353	Barbell Deadlift
-75606989	Seated Leg Extentions
-75606988	DB Bent Over Row
-77558719	Landmine Single-Arm Row
-70738452	Single Leg RDL
-70738515	Leg Press
-77572825	Pull-Ups
-70738526	Push-Ups
-77526626	Seated Cable Row
-76572303	Leg Press
-70738523	Single Leg RDL
-74398125	Hamstring Curl Machine
-75326247	Cable Scap Retractions
-76817325	DB Close Grip Bench
-77527014	Landmine Single-Arm Press
-74414523	Leg Press
-77559477	Barbell Incline Bench Press
-77559482	Landmine Single-Arm Row
-76572302	DB Single Arm Bent Over Row
-76157961	DB Bench Press
-70738447	Lat Pull-Down
-76443368	Pit Shark Squat
-70738439	Hamstring Curl Machine
-74378565	Landmine Anti-Rotations
-76572305	Hamstring Curl Machine
-74414751	Hamstring Curl Machine
-70738490	DB Step-Ups
-70738516	DB Step-Ups
-70738480	Cable Scap Retractions
-70738496	Hypers
-76572301	DB Alternating Shoulder Press
-74378726	TIYW's
-74677412	Landmine Anti-Rotations
-65346187	Side Plank
-75606986	Goblet Squat
-77527166	TIYW's
-75326270	Leg Press
-74412012	Pit Shark Squat
-73958751	Snatch Grip Romanian Deadlift
-70738526	Cable External Rotation
-76572297	Pit Shark Squat
-65346273	Rope Tricep Pushdowns
-75028631	Seated Cable Row
-74677476	Cable Scap Retractions
-75028643	Pit Shark Squat
-75326273	DB Single Leg Romanian Deadlift
-77558650	TIYW's
-70738440	DB Bent Over Row
-65346167	Chest Supported Row
-74378562	Body Saw
-75124809	Seated Row
-75606986	Pit Shark Squat
-70738461	Push-Ups
-75124818	Rope Triceps Pressdowns - Pronating Grip
-76572310	Seated Cable Row
-75326276	Reverse Crunch
-70738477	DB Step-Ups
-75035821	DB Alternating Bench Press
-73957422	Hamstring Curl Machine
-76572296	Barbell Shoulder Press
-70738495	Leg Lowers
-75027963	Single-Leg Deadlift
-75028649	Reverse Crunch
-77526620	Single-Arm Lat-Pulldown
-76572307	Landmine Press
-74397991	Barbell Back Squat
-75326251	Chest Supported Row
-75326260	Seated Cable Row
-70738468	Deadbugs
-75326233	Pull-Ups
-75028324	Physioball V-Sit Rotations
-75326230	Leg Press
-75124827	Seated Shrug
-75326225	Barbell Bench Press
-75326231	DB Bench Press
-75326248	Hanging Knee Ups
-76443373	Chest Supported Row
-77572827	Landmine Single-Arm Press
-76572292	Barbell Bench Press
-74413107	Hamstring Curl
-74677380	Lat Pull-Down
-65346220	Cable Face-Pulls
-75124845	Palloff Press
-75326231	Barbell Bench Press
-65346239	Off Bench Obliques
-75596909	Plate Pinch
-74677448	TIYW's
-75028290	Hamstring Curl Machine
-65346221	Cable Scap Retractions
-74378724	Wide Grip Pulldown Fat Grip
-75124815	Seated Cable Row
-75326258	Pit Shark Squat
-77558649	Landmine Single-Arm Row
 74414762	Fat Grip Wide Cable Row
-70738441	Cable Scap Retractions
-75027890	Lat Pull-Down
-70738477	DB Goblet Squat
-75326243	Heavy Chin-Ups
-75027926	DB Alternating Bench Press
-74378720	Palloff Press
-70738497	Single Leg RDL
+65346192	DB Upright Row
+77558720	TIYW's
+65346274	Front Plank
 74398203	Wide Grip Pulldown Fat Grip
-65346285	Front Plank
-75124807	Trap Bar Deadlift
-75326259	DB Incline Bench Press
+70738496	Hypers
 74415221	DB Bent Over Row
-70738442	Deadbugs
-65346270	Chest Supported Row
-77559484	Band Anti-Extension Crunch
-74677492	Straight Leg Sit Up
-73996180	Physioball Pot Stirs
-75027926	Seated Cable Row
-73959660	Body Saw
-65346207	Lat Pull-Down
-75028200	Hamstring Curl Machine
-74378725	Cable Face-Pulls
-76817325	Single Arm Dumbbell Row
-75606989	DB Single Leg Romanian Deadlift
-77572824	Barbell Incline Bench Press
-70738489	Leg Press
-74378603	DB Reverse Fly
-74415221	Barbell Bent Over Row
-65346168	Barbell Close Grip Bench Press
-65346279	TIYW's
-74412012	Goblet Squat
-65346186	Barbell Close Grip Bench Press
-73957370	Seated Cable Row
-77527180	Band Anti-Extension Crunch
-76647604	Rope Tricep Pushdowns
-77527164	Landmine Single-Arm Row
-75027959	Palloff Press
-65346217	Barbell Bench Press
-65346237	Chest Supported Row
-76572311	DB Bench Press
-65346219	Chest Supported Row
-76145659	DB Over & Back Lunges
-76818220	Band Anti-Extension Crunch
-70738527	Cat-Camel
-75326230	Barbell Back Squat
-74678300	Front Plank
-70738443	Leg Lowers
-77526620	Lat Pull-Down
-70738472	DB RFE Squat
-65346198	Reverse Hypers
-75027890	Pull-Ups
-73996257	Physioball Cable Rotations
-70738453	DB Bent Over Row
-73958925	DB Reverse Fly
-65346209	DB Upright Row
-77572830	TIYW's
-65346187	Off Bench Obliques
-65346182	Barbell Bench Press
 65346200	Barbell Bench Press
-77559478	Pull-Ups
-74413107	Barbell Good Morning
-74677488	Hanging Knee Ups
-75124841	DB Single Leg Romanian Deadlift
-76818236	Palloff Press
-70738492	DB Bent Over Row
-65346241	Leg Lowers
-75028646	DB Romanian Deadlift
-70738476	Pit Shark Squat
-74413107	Hamstring Curl Machine
-75124827	Rack Power Shrugs
-65346272	Chest Supported Row
-76817345	Cable Fat Grip Wide Row
-75124826	Hang Clean High Pull
-75124808	Barbell Incline Bench Press
-75326232	DB Romanian Deadlift
-76676302	DB Incline Bench Press
-74378563	Cable Physioball Rotations
-77559483	TIYW's
-73959070	Wide Grip Pulldown Fat Grip
-65346165	Barbell Bench Press
-74412012	Hamstring Curl Machine
-75035822	Palloff Press
-75028200	Reverse Lunge to Landmine Press
-70738438	DB Step-Ups
-75326270	Barbell Back Squat
-65346286	Side Plank
-65346217	DB Bench Press
-76142447	Seated Leg Extentions
-70738461	Leg Lowers
-65346235	Barbell Bench Press
-75596906	Chest Supported Row
-70738452	Hamstring Curl Machine
-75326232	Barbell Good Morning
-65346202	Seated Cable Row
+76443368	Pit Shark Squat
+75028632	Heavy Chin-Ups
+75124811	Physioball Windshield Wipers
+75028643	Barbell Back Squat
+77527180	Band Anti-Extension Crunch
+65346285	Reverse Hypers
+75326235	DB Single Arm Bent Over Row
+70738448	Push-Ups
+70738498	Hamstring Curl Machine
+75326231	Barbell Bench Press
+65346170	Straight leg situp
+74414751	Hamstring Curl Machine
+65346215	Reverse Hypers
+70738490	Hamstring Curl Machine
 65346223	Straight leg situp
-70738457	Bicycle Crunch
-76572291	Barbell Back Squat
+74415214	Landmine Press
+70738478	Single Leg RDL
+65346168	Barbell Close Grip Bench Press
+73959457	Physioball Cable Rotations
+76443371	DB Incline Bench Press
+75124844	DB Alternating Bench Press
+75027913	Wide Grip Seated Cable Row
+75326242	Seated Cable Row
+70738438	DB Step-Ups
+74397991	Pit Shark Squat
+65346286	Bent Knee Ankle Touches
+75124827	Rack Power Shrugs
+70738475	Reverse Plank
+75035821	DB Alternating Bench Press
+75124826	Hang Clean High Pull
+70738472	DB RFE Squat
+76647604	Rope Tricep Pushdowns
+74677802	Heavy Chin-Ups
+65346166	DB Incline Bench Press
+70738460	Single-Arm Lat-Pulldown
+77527014	Landmine Single-Arm Press
+74677492	Deadbugs
+74378562	Body Saw
+74378567	Barbell Reverse Curl
+77526626	Seated Cable Row
+75124842	Wide Grip Seated Cable Row
+76142454	Hamstring Curl Machine
+76572306	Cable Fat Grip Wide Row
+74378716	Hamstring Curl Machine
+75326260	Seated Cable Row
+76572304	Barbell Close Grip Incline Bench Press
+70738450	Leg Press
+65346191	DB Bench Press
+75028648	DB Rear Delt Fly
+65346184	Seated Cable Row
+77559481	Physioball Pot Stirs
+74413107	Hamstring Curl Machine
+70738471	Single Leg RDL
+75124828	Single-Arm Landmine Rotational Press
+75326255	Front Plank
+70738464	DB Step-Ups
+77559477	Barbell Incline Bench Press
+70738471	Hamstring Curl Machine
+75326230	Seated Leg Extentions
+77706528	Wide Grip Pulldown Fat Grip
+75326258	Hamstring Curl
+65346189	Leg Lowers
+73958925	DB Reverse Fly
+74378728	Cable Physioball Rotations
+75124810	Lat Pull-Down
+76157957	Chest Supported Row
+65346202	Chest Supported Row
+75028290	Hamstring Curl Machine
+74378600	Barbell Deadlift
+75326249	Ab Wheel Rollouts
+70738516	DB Step-Ups
+73957422	Hamstring Curl Machine
+75124826	Hang Clean
+75027890	Lat Pull-Down
+75326243	Heavy Chin-Ups
+75326233	Pull-Ups
+70738445	Single Leg RDL
+70738454	Cable Scap Retractions
+76572292	Barbell Bench Press
+74677802	Lat Pull-down
+70738490	Goblet Squat
+77526620	Pull-Ups
+75326246	Shoulder 30's
+65346237	Seated Cable Row
+65346244	TIYW's
+74414762	Wide Grip Seated Cable Row
+70738455	Straight Leg Sit Up
+74677412	Landmine Anti-Rotations
+65346190	Lat Pull-Down
+77527164	Landmine Fat Grip Single-Arm Row
+65346249	V-Sit up
+65346187	Side Plank
+65346217	Cable Scap Retractions
+65346285	Front Plank
+74677408	Kneeling Cable Punch
+75596695	Seated Cable Row
+74378718	DB Reverse Fly
+75606988	Cable Face-Pulls
+65346209	DB Shrug
+75124814	Barbell Bench Press
+75629209	Hamstring Curl Machine
+65346186	Barbell Close Grip Bench Press
+75124818	Rope Triceps Pressdowns - Pronating Grip
+65346222	Off Bench Obliques
+73962071	Barbell Reverse Curl
+70738462	Reverse Plank
+76572309	Hamstring Curl Machine
+70738440	DB Bent Over Row
+70738519	Cable Scap Retractions
+75596905	Lat Pull-Down
+65346173	DB Bench Press
+74378560	Cable Face-Pulls
+74378719	Shoulder 6-Pack
+70738489	Leg Press
+75124809	Seated Cable Row
+70738526	Cable Punch
+70738453	DB Bent Over Row
+70738445	Hamstring Curl Machine
+77558645	Pull-Ups
+70738441	Cable Scap Retractions
+74378602	Seated Cable Row
+65346197	V-Sit up
+74677448	TIYW's
+70738446	DB RFE Squat
+75027963	Single-Leg Deadlift
+73959110	Cable Face-Pulls
+76572308	Barbell Bent Over Row
+73959660	Body Saw
+75124830	MedBall Slam
+75124815	Seated Cable Row
+76142452	Seated Leg Extentions
+74378558	Barbell Bench Press
+75326250	Heavy Chin-Ups
+75326270	Trap Bar Deadlift
+70738497	Single Leg RDL
+65346250	Reverse Hypers
+77558717	Landmine Single-Arm Press
+75326251	Chest Supported Row
+73957584	Palloff Press
+76817367	Lat Pull-Down
+75028649	Reverse Crunch
+70738473	Lat Pull-Down
+75596905	Heavy Chin-Ups
+65346179	V-Sit up
+73996257	Physioball Cable Rotations
+65346274	Side Plank
+70738448	Cable Punch
+75326232	Hamstring Curl Machine
+75326271	Seated Cable Row
+65346272	Seated Cable Row
+75027890	Pull-Ups
+77558719	Landmine Single-Arm Row
+75326254	Plate Pinch
+75124840	Pull-Ups
+65346183	DB Incline Bench Press
+75326247	Cable Scap Retractions
+70738477	DB Step-Ups
+70738474	Cable Punch
+75326270	Leg Press
+70738498	DB RFE Squat
+65346204	Russian Twist
+74378720	Palloff Press
+65346270	Chest Supported Row
+75596907	Cable Split Squat Single Arm Rotating Row
+75028634	Rope Triceps Pressdowns - Pronating Grip
+74678300	Front Plank
+70738452	Hamstring Curl Machine
+74378724	Wide Grip Pulldown Fat Grip
+75326234	DB Alternating Shoulder Press
+70738520	Deadbugs
+65346251	Bent Knee Ankle Touches
+76572309	Barbell Back Squat
+75326232	Physioball Hypers
+75326275	DB Rear Delt Fly
+77527166	TIYW's
+74677348	Seated Cable Row
+75326258	Seated Leg Extentions
+77558651	Band Anti-Extension Crunch
+70738467	Cable Scap Retractions
+74677476	Cable Scap Retractions
+77559483	TIYW's
+75606989	DB Single Leg Romanian Deadlift
+77558649	Landmine Single-Arm Row
+77543938	Physioball Pot Stirs
+65346236	DB Incline Bench Press
+77526620	Single-Arm Lat-Pulldown
 70738524	Single-Leg Leg Press
-70738481	Straight Leg Sit Up
+65346273	Barbell Close Grip Bench Press
+77706525	DB Goblet Squat
+65346284	Front Plank
+74378603	DB Reverse Fly
+76572310	Seated Cable Row
+65346239	Off Bench Obliques
+65346220	Cable Face-Pulls
+75606986	Goblet Squat
+75124809	Seated Row
+65346198	Reverse Hypers
+74677448	Shoulder 30's
+75035819	Wide Grip Seated Cable Row
+76572291	Barbell Back Squat
+76572311	DB Bench Press
+65346165	Barbell Bench Press
+74378564	Single-Arm Landmine Row
+76676299	Barbell Bench Press
+65346221	Barbell Close Grip Bench Press
+65346169	Russian Twist
+74677802	Lat Pull-Down
+70738449	Reverse Plank
+77556311	DB Over & Back Lunges
+70738468	Deadbugs
+75326254	wrist roller
+65346274	Off Bench Obliques
+65346171	Leg Lowers
+65346242	Lat Pull-Down
+77572828	Physioball Pot Stirs
+65346279	DB Upright Row
+70738523	Single Leg RDL
+74378554	Shoulder 6-Pack
+75035823	Physioball V-Sit Rotations
+70738476	Leg Press
+74378727	Body Saw
+75027963	DB Romanian Deadlift
+76817367	Wide Grip Pulldown Fat Grip
+73957353	Barbell Deadlift
+70738495	Leg Lowers
+76817345	Cable Fat Grip Wide Row
+75326246	TIYW's
+70738518	DB Bent Over Row
+75124829	MedBall Squat Jump
+65346286	Side Plank
+73957370	Seated Cable Row
+73996153	Landmine Anti-Rotations
+70738458	Hamstring Curl Machine
+76676301	V Grip Lat Pulldown
+77526470	DB Incline Bench Press
+70738475	Cat-Camel
+70738461	Leg Lowers
+75326250	Lat Pull-Down
+70738522	Hypers
+74412012	Barbell Back Squat
+76818220	Band Anti-Extension Crunch
 70738439	Single Leg RDL
+74378555	Palloff Press
+74378725	Cable Face-Pulls
+65346185	Cable Face-Pulls
+65346235	Barbell Bench Press
+74378552	Seated Cable Row
+74678303	Physioball DeadBugs
+74678211	Split Stance Rotating Single-Arm Cable Row
+76572293	DB Romanian Deadlift
+77558646	Seated Cable Row
+74398020	Seated Cable Row
+76572309	Leg Press
+65346244	DB Upright Row
+70738444	Reverse Crunch
+74412012	Pit Shark Squat
+76572314	DB Rear Delt Fly
+70738443	Leg Lowers
+70738459	DB RFE Squat
+70738456	Off Bench Obliques
+70738461	Cable Punch
+77558644	Barbell Incline Bench Press
+70738490	DB Reverse Walking Lunge
+75124841	DB Single Leg Romanian Deadlift
+75606986	Barbell Back Squat
+74413766	DB Single Arm Bent Over Row
+65346188	Straight leg situp
+75326270	Barbell Back Squat
+65346221	TIYW's
+70738444	Hypers
+74678141	Chest Supported Row
+77706529	Ab Wheel Rollouts
+77706530	PVC Wrestle
+65346277	Chest Supported Row
+76157961	DB Bench Press
+74677380	Lat Pull-Down
+70738479	DB Bent Over Row
+74415221	Chest Supported Row
+74397991	Barbell Back Squat
+70738492	DB Bent Over Row
+76572313	Wide Grip Pulldown Fat Grip
+75124807	Barbell Back Squat
+75326248	Hanging Knee Ups
+75326234	DB Lateral Raises
+74398020	Barbell Bench Press
+74413107	Hamstring Curl
+73959070	Wide Grip Pulldown Fat Grip
+77572829	Landmine Fat Grip Single-Arm Row
+73996180	Physioball Pot Stirs
+70738526	Push-Ups
+76572309	Pit Shark Squat
+70738439	Hamstring Curl Machine
+65346244	DB Overhead Shrugs
+65346199	Bent Knee Ankle Touches
+75035817	DB Reverse Fly
+75027963	Hamstring Curl
+75124826	Seated Leg Extentions
+70738527	Cat-Camel
+75028200	Reverse Lunge to Landmine Press
+74398020	DB Bent Over Row
+75326253	TIYW's
+70738458	Single Leg RDL
+70738442	Deadbugs
+65346167	Chest Supported Row
+65346201	DB Incline Bench Press
+76572311	Single-Arm Lat-Pulldown
+65346219	Seated Cable Row
+74378563	Cable Physioball Rotations
+77559482	Landmine Single-Arm Row
+74414746	Supinated Grip Barbell Row
+74412012	Hamstring Curl Machine
+70738517	Hamstring Curl Machine
+65346174	DB Upright Row
+65346203	Barbell Close Grip Bench Press
+70738494	Deadbugs
+70738465	Hamstring Curl Machine
+75035820	Reverse Lunge to Landmine Press
+75028643	Leg Press
+70738470	Hypers
+65346275	Straight leg situp
+77572830	TIYW's
+75606988	DB Bench Press
+74413448	DB Alternating Shoulder Press
+75028324	Physioball V-Sit Rotations
+77526470	Barbell Incline Bench Press
+65346216	Bent Knee Ankle Touches
+76572299	Hamstring Curl Machine
+75326261	Lat Pull-Down
+70738526	Cable External Rotation
+77527164	Landmine Single-Arm Row
+65346214	V-Sit up
+75326270	Hamstring Curl Machine
+75606989	Seated Leg Extentions
+76647599	DB Hammer Curls
+75606987	Seated Cable Row
+75028629	Front Squat Speed Squat
+76145659	DB Over & Back Lunges
+77558647	Landmine Single-Arm Press
+75606990	Wide Grip Pulldown Fat Grip
+70738500	Cable Punch
+65346237	Chest Supported Row
+65346174	DB Overhead Shrugs
+76676302	DB Incline Bench Press
+75028647	Wide Grip Pulldown Fat Grip
+77572825	Pull-Ups
+65346217	Barbell Bench Press
+75124827	Seated Shrug
+65346240	Straight leg situp
+74068339	Single-Arm Landmine Row
+70738447	Lat Pull-Down
+75326264	Front Squat Speed Squat
+74677492	Ab Wheel Rollouts
+76572309	Trap Bar Deadlift
+74412671	DB Bench Press
+65346272	Chest Supported Row
+70738437	Barbell Back Squat
+76572315	Reverse Crunch
+77559478	Pull-Ups
+70738477	DB Goblet Squat
+70738491	Single Leg RDL
+65346284	Physioball Plank Row
+75028250	Seated Leg Extentions
+76572294	Wide Grip Pulldown Fat Grip
+76572309	Barbell Romanian Deadlift
+73958879	Barbell Bench Press
+75326249	Front Plank
+73995620	Barbell Deadlift
+74414746	Barbell Close Grip Incline Bench Press
+65346277	Lat Pull-Down
+74378559	Wide Grip Pulldown Fat Grip
+74378561	TIYW's
+74413107	DB Walking Lunge
+75124808	Barbell Incline Bench Press
+75124829	Snap Down
+70738499	Lat Pull-Down
+73961084	DB Shoulder Press
+76572301	DB Alternating Shoulder Press
+76443370	Seated Cable Row
+65346271	DB Incline Bench Press
+75326270	Pit Shark Squat
+65346241	Leg Lowers
+65346224	Leg Lowers
+75035818	Single-Leg Deadlift
+75326273	DB Single Leg Romanian Deadlift
+75326274	Wide Grip Pulldown Fat Grip
+74378723	Barbell Bench Press
+75326230	Pit Shark Squat
+76816793	DB Goblet Squat
+76572305	Hamstring Curl Machine
+75326245	Palloff Press
+65346206	Leg Lowers
+77559484	Band Anti-Extension Crunch
+65346200	DB Bench Press
+76572312	DB Single Leg Romanian Deadlift
+65346209	DB Upright Row
+75028646	DB Romanian Deadlift
+75606992	Reverse Crunch
+75326272	DB Bench Press
+75326232	DB Romanian Deadlift
+73957546	Shoulder 6-Pack
+65346205	Straight leg situp
+75326256	Physioball DeadBugs
+70738501	Cat-Camel
+74378717	Seated Cable Row
+75124816	Heavy Chin-Ups
+73962073	Rope Tricep Pushdowns
+75606991	DB Rear Delt Fly
+77558650	TIYW's
+75124826	Clean High Pull
+75326252	Cable Split Stance Single Arm Rotating Row
+70738477	DB Lunge
+76817325	Single Arm Dumbbell Row
+75028630	Barbell Bench Press
+75124808	DB Incline Bench Press
+76572298	Barbell Bench Press
+77706527	Cable Wide Grip Seated Row
+76572297	Pit Shark Squat
+76572295	Barbell Bent Over Row
+75326258	Pit Shark Squat
+75596906	Chest Supported Row
+75027926	DB Alternating Bench Press
+74378726	TIYW's
+76572309	Safety Bar Squat
+65346238	Rope Tricep Pushdowns
+74378568	Rope Tricep Pushdowns
+65346218	DB Incline Bench Press
+65346218	Chest Supported Row
+74412671	Seated Cable Row
+75326231	DB Bench Press
+70738524	DB RFE Squat
+77526620	Lat Pull-Down
+65346207	Lat Pull-Down
+75326232	Barbell Good Morning
+70738449	Cat-Camel
+75606986	Pit Shark Squat
+65346202	Seated Cable Row
+65346219	Chest Supported Row
+76572311	Chest Supported Row
+65346276	Leg Lowers
+70738521	Leg Lowers
+65346217	DB Bench Press
+75596909	DB Seated Hold
+74378551	Hamstring Curl Machine
+74538501	Leg Press
+76443372	Lat Pull-Down
+70738457	Bicycle Crunch
+70738469	Leg Lowers
+65346187	Off Bench Obliques
+75028644	Seated Cable Row
+75027959	Palloff Press
+74412671	Barbell Bench Press
+75596908	TIYW's
+65346235	DB Bench Press
+74398125	DB Romanian Deadlift
+73962066	Giordando Row
+76572303	Pit Shark Squat
+74677380	Heavy Chin-Ups
+75596909	Plate Pinch
+65346238	Barbell Close Grip Bench Press
+75326263	Ab Wheel Rollouts
+77572827	Landmine Single-Arm Press
+74414746	DB Incline Bench Press
+70738460	Lat Pull-Down
+70738493	Cable Scap Retractions
+74415221	Barbell Bent Over Row
+70738474	Push-Ups
+65346181	Bent Knee Ankle Touches
+65346184	Chest Supported Row
+70738437	Leg Press
+65346279	Overhead Shrug
+74677488	Hanging Knee Ups
+75124846	Physioball V-Sit Rotations
+74400185	Barbell Bent Over Row
+74413107	Barbell Good Morning
+65346172	Lat Pull-Down
+77558718	Physioball Pot Stirs
+70738525	Lat Pull-Down
+70738515	Leg Press
+75124843	Single-Arm Landmine Row
+75326262	Physioball Windshield Wipers
+76145664	Hamstring Curl Machine
+74678290	Seated DB Hold
+77706526	DB Close Grip Bench
+75028645	DB Bench Press
+65346208	DB Bench Press
+65346279	TIYW's
+75326225	Barbell Bench Press
+76572303	Leg Press
+75027926	Seated Cable Row
+74677492	Straight Leg Sit Up
+70738518	Cable Fat Grip Low Row
+65346273	DB Close Grip Bench
+73957588	Physioball Hypers
+77558721	Band Anti-Extension Crunch
+75028633	Rope Curls
+76572300	Pull-Ups
+75124845	Palloff Press
+75596910	Front Plank
+77558648	Physioball Pot Stirs
+74413374	Pull-Ups
+77558716	Seated Cable Row
+74409004	Barbell Shoulder Press
+75326230	Barbell Back Squat
+76443373	Chest Supported Row
+70738523	Hamstring Curl Machine
+65346270	Barbell Bench Press
+74412012	Goblet Squat
+70738483	Bicycle Crunch
+76818236	Palloff Press
+73961081	Heavy Neutral Grip Chin Up
+75326245	Landmine Anti-Rotations
+65346273	Rope Tricep Pushdowns
+77572824	Barbell Incline Bench Press
+65346182	Barbell Bench Press
+70738465	Single Leg RDL
+70738517	Single Leg RDL
+76817325	DB Close Grip Bench
+74378566	Giordando Row
+70738527	Reverse Plank
+75028200	Hamstring Curl Machine
+75326254	DB Seated Hold
+75028631	Seated Cable Row
+74398125	Hamstring Curl Machine
+74378721	Physioball Hypers
+73960159	Barbell Bench Press
+70738478	Hamstring Curl Machine
+75326259	Barbell Incline Bench Press
+70738481	Straight Leg Sit Up
+77559480	Landmine Single-Arm Press
+75027963	DB Single-Leg Romanian Deadlift
+65346221	Cable Scap Retractions
+65346273	Lat Pull-Down
+70738451	DB Step-Ups
+65346167	Seated Cable Row
+73958751	Snatch Grip Romanian Deadlift
+76572296	Barbell Shoulder Press
+65346192	DB Overhead Shrugs
+76142447	Seated Leg Extentions
+76676300	Seated Cable Row
+75596911	Physioball DeadBugs
+73959259	TIYW's
+75124812	Ab Wheel Rollouts
+75326230	Leg Press
+70738463	Leg Press
+70738452	Single Leg RDL
+75028645	Single-Arm Landmine Row
+75124813	Front Squat Speed Squat
+75326276	Reverse Crunch
+65346209	TIYW's
+70738516	Goblet Squat
+65346180	Reverse Hypers
+75326249	4-Way Neck
+70738476	Pit Shark Squat
+70738466	DB Bent Over Row
+70738490	DB Step-Ups
+74414523	Leg Press
+75027963	Seated Leg Extentions
+76572314	Cable Scap Retractions
+75326259	DB Incline Bench Press
+77559479	Seated Cable Row
+75124831	MedBall Chest Pass
+76572302	DB Single Arm Bent Over Row
+65346278	DB Bench Press
+74378550	Barbell Deadlift
+70738482	Off Bench Obliques
+75606988	DB Bent Over Row
+65346275	Side Plank
+75035822	Palloff Press
+74378565	Landmine Anti-Rotations
+76572307	Landmine Press
+77558715	Pull-Ups
+65346209	DB Overhead Shrugs
+70738461	Push-Ups
+75124817	Rope Curls
+75606986	Trap Bar Deadlift
+70738480	Cable Scap Retractions
+65346204	Off Bench Obliques
+75326258	Barbell Back Squat
+75028643	Pit Shark Squat
+65346243	DB Bench Press
+65346284	V-Sit up
+75124807	Trap Bar Deadlift
+65346218	DB Shoulder Press
+75326244	Split Stance Cable Punch
 \.
 
 
