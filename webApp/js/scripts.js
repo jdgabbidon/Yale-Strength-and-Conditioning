@@ -129,3 +129,8 @@ async function addRow(){
   	
 }
 
+async function singleDayWorkoutViewer(){
+	let athleteId = document.getElementById('athleteName').value;
+	let date = document.getElementById('datesWorkedOut').value;
+}
+

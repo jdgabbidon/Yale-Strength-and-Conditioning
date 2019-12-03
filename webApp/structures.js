@@ -35,6 +35,16 @@ app.get("/getAllWorkouts", async (request, response) => {
     
 });
 
+//getting a single exercise
+app.get("/getSingleDayWorkout", async (request, response) => {
+
+    let id = request.query.athleteId; 
+    let date = request.query.date;
+    response.send(await getSingleDayWorkout(id, date));
+    
+});
+
+
 app.get("/", async (request, response) => {
 
     response.sendFile(__dirname + "/webApp.html");
@@ -141,6 +151,8 @@ async function getTotalHistory(athleteId, exerciseName){
 
     var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName + '\'');
     let data = res.rows;
+
+    client.end();
     return data;
 }
 
@@ -150,8 +162,24 @@ async function getAllWorkouts(athleteId, exerciseName){
 
     var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName + '\' ORDER BY date DESC');
     let data = res.rows;
-    console.log(data);
+
+    client.end();
     return data;
+}
+
+async function getSingleDayWorkout(athleteId, date){
+     const client = new pg.Client(cs);
+    client.connect();
+
+    var res = await client.query('SELECT * FROM exercise_day WHERE athlete_id=\'' + athleteId + '\' AND date=\'' + date + '\'');
+    let data = res.rows;
+
+    console.log(data);
+
+    client.end();
+    return data;
+
+
 }
 
 
