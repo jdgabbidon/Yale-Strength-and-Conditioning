@@ -13,7 +13,6 @@
 //         $select.append($('<option></option>').val(i).html(i))
 //     }
 // });
-
 async function populate(){
 
 	//fetching
@@ -45,14 +44,30 @@ async function populate(){
     	opt.value = object.exerciseName;
     	opt.innerHTML = object.exerciseName;
     	select.appendChild(opt);
-    })
-
-
-
+    });
 
 
 }
 
+async function populateDates(athleteId){
+	//fetching
+	let response = await fetch("http://localhost:8080/getDates?athleteId=" + athleteId);
+
+	let obj = await response.json();
+
+	let date = obj.dates;
+
+	select = document.getElemntById("datesWorkedOut");
+
+	 date.forEach(object => {
+    	let opt = document.createElement('option');
+    	opt.value = date;
+    	opt.innerHTML = dateConverter(parseInt(date)).toDateString();
+    	select.appendChild(opt);
+    });
+
+
+}
 //to convert dates
 function dateConverter(excelDate){
     return new Date((excelDate - (25567 + 2))*86400*1000);
@@ -61,35 +76,42 @@ function dateConverter(excelDate){
     
 
 //this creates the data filed
-async function getTotalPerExercise(){
+async function getWorkoutHistoryData(){
 
 	let athleteId = document.getElementById('athleteName').value;
-	let exerciseName = document.getElementById('exerciseName').value;
+	let date = document.getElementById('datesWorkedOut').value;
 
 	console.log(athleteId);
 
-	let response = await fetch("http://localhost:8080/getTotalHistory?athleteId=" + athleteId + "&exerciseName=" + exerciseName);
+	let response = await fetch("http://localhost:8080/getWorkoutHistory?athleteId=" + athleteId + "&date=" + date);
 
-	/* other */
-    let select = document.getElementById('dates');
-    let tonage = document.getElementById("tonage");
-    select.innerHTML = "";
-	select.addEventListener("change", () => {
-    	tonage.innerHTML = select.value;
-	});
+	let tableRef = document.getElementById("dataTable");
 
+  	let exerciseDayData = await response.json();
 
-    let exerciseDayData = await response.json();
+  	console.log(exerciseDayData);
+  	exerciseDayData.forEach(row => {
 
-    exerciseDayData.forEach(object => {
-    	let opt = document.createElement('option');
-    	opt.value = object.total_tonage;
-    	var newDate = object.date.replace(/[, ]+/g, "").trim();
-    	console.log(newDate);
-    	opt.innerHTML = dateConverter(parseInt(newDate)).toDateString();
-    	select.appendChild(opt);
-    });
-    tonage.innerHTML = select.value;
+  	let newRow = tableRef.insertRow(-1); //insert a row at the end of the table
+  	newRow.className = "temp";
+  	let cell0 = newRow.insertCell(0); //insert a cell in the row at index 0
+  	
+  	let newText = document.createTextNode(dateConverter(parseInt(row.date)).toDateString()); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	cell0 = newRow.insertCell(1); //insert a cell in the row at index 0
+  	newText = document.createTextNode(row.exercise_name); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	cell0 = newRow.insertCell(2); //insert a cell in the row at index 0
+  	newText = document.createTextNode(row.rep_count); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	cell0 = newRow.insertCell(3); //insert a cell in the row at index 0
+  	newText = document.createTextNode(row.total_tonage); // append a text node to the cell
+  	cell0.appendChild(newText);
+
+  	});
 }
 
 //spitting out data in rows
@@ -103,11 +125,11 @@ async function addRow(){
   	let tableRef = document.getElementById("dataTable");
 
   	let exerciseDayData = await response.json();
-
+  	console.log(exerciseDayData);
   	exerciseDayData.forEach(row => {
 
-  	console.log(row);
   	let newRow = tableRef.insertRow(-1); //insert a row at the end of the table
+	newRow.className = "temp";
 
   	let cell0 = newRow.insertCell(0); //insert a cell in the row at index 0
   	let newText = document.createTextNode(dateConverter(parseInt(row.date)).toDateString()); // append a text node to the cell
@@ -133,4 +155,58 @@ async function singleDayWorkoutViewer(){
 	let athleteId = document.getElementById('athleteName').value;
 	let date = document.getElementById('datesWorkedOut').value;
 }
+
+function showE(){
+		document.getElementById("exerciseName").style.display = "inline";
+		document.getElementById("datesWorkedOut").style.display = "none";
+}
+
+function showD(){
+		document.getElementById("datesWorkedOut").style.display = "inline";
+		document.getElementById("exerciseName").style.display = "none";
+}
+
+async function populateDate(){
+	let autoPop = document.getElementById("athleteName");
+	let dateList = document.getElementById("datesWorkedOut");
+
+	autoPop.addEventListener("change", async() => {
+
+	console.log(autoPop.value);
+	let response = await fetch("http://localhost:8080/getDates?athleteId=" + autoPop.value);
+    let object = await response.json();
+    let dates = object.dates;
+
+    let select = document.getElementById("datesWorkedOut");
+    dates.forEach(obj => {
+    	let opt = document.createElement('option');
+    	opt.value = obj.date.date;
+    	opt.innerHTML = dateConverter(parseInt(obj.date.date)).toDateString();
+    	select.appendChild(opt);
+    });
+});
+
+}
+
+function submitChoice(){
+	let rows = document.getElementsByClassName("temp");
+	console.log(rows);
+	let arr = Array.prototype.slice.call(rows);
+	console.log(arr);
+	if (arr.length != 0){
+		arr.forEach(row => {
+		row.remove();
+		});
+	}
+	
+
+	if (document.getElementById("exerciseName").style.display == "inline"){
+		addRow();
+	} else {
+		getWorkoutHistoryData();
+	}
+}
+
+//calling Populate Date
+populateDate();
 

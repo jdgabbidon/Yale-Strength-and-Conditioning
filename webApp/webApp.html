@@ -14,24 +14,11 @@
 	}
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="http://localhost:8080/js/scripts.js"></script>
 
-<script>
-	function showE(){
-		document.getElementById("exerciseName").style.display = "inline";
-		document.getElementById("datesWorkedOut").style.display = "none";
-	}
-	function showD(){
-		document.getElementById("datesWorkedOut").style.display = "inline";
-		document.getElementById("exerciseName").style.display = "none";
-	}
-
-</script>
 <h1 id="mainHeader">Strength Selector</h1>
 
-<button onclick=showE() >Workout on Day</button>
-<button onclick=showD()>All Instances of Exercise</button> 
+<button onclick=showD() >Workout on Day</button>
+<button onclick=showE()>All Instances of Exercise</button> 
 
 <p id="demo">Enter Info:</p>
 
@@ -40,10 +27,11 @@
 <div>
 <select id="athleteName" class="selects"></select>
 <select id="exerciseName" style="display: none;" class="selects"></select>
-<select id="datesWorkedOut" style="display: none;" class="selects"><option>test</option></select>
+<select id="datesWorkedOut" style="display: none;" class="selects"></select>
 </div>
 
-<button onclick=addRow()>Submit</button> <!--Also getTotalPerExercise goes here but currently not -->
+<button onclick=submitChoice()>Submit</button> <!--Also getTotalPerExercise goes here but currently not -->
+
 
 <div>
 <p>Available Dates:</p>
@@ -55,10 +43,6 @@
 </div>
 
 
-<div>
-	<h3 style="font-weight: normal;">Tonage Per Selected Exercise On Selected Day</h3>
-	<p id="tonage"></p>
-</div>
 
 <div>
 	<table id = "dataTable" style="width: 95%; border: 2px solid black;">
@@ -67,12 +51,14 @@
 			<th>Exercise Name</th>
 			<th>Rep Count<th>
 			<th>Total Tonage</th>
-
 		</tr>
 
 	</table>
 </div>
 
-
 </body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="http://localhost:8080/js/scripts.js"></script>
 </html>

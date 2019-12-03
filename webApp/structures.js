@@ -16,6 +16,12 @@ app.get("/getValues", async (request, response) => {
     
 });
 
+app.get("/getDates", async (request, response) => {
+
+    console.log(request.query.athleteId);
+    response.send(await pullDates(request.query.athleteId));
+    
+});
 
 //for sending selected element back
 app.get("/getTotalHistory", async (request, response) => {
@@ -23,6 +29,14 @@ app.get("/getTotalHistory", async (request, response) => {
     let id = request.query.athleteId; 
     let name = request.query.exerciseName;
     response.send(await getTotalHistory(id, name));
+    
+});
+
+app.get("/getWorkoutHistory", async (request, response) => {
+
+    let id = request.query.athleteId; 
+    let date = request.query.date;
+    response.send(await getWorkoutHistory(id, date));
     
 });
 
@@ -138,6 +152,27 @@ async function populateArrExercises(){
     return uniqueArray;
 }
 
+async function populateArrDates(athleteId){
+    const client = new pg.Client(cs);
+    client.connect();
+
+    var arr = [];
+    var res = await client.query('SELECT DISTINCT date FROM exercise_day WHERE athlete_id=\'' + athleteId + '\' ORDER BY date DESC');
+    let data = res.rows;
+
+    data.forEach(row => {
+        var dateObj = {
+            'date': row
+        }
+
+        arr.push(dateObj);
+    });
+
+    
+    client.end();
+
+    return arr;
+}
 async function pushValues() {
     return {
         athletes: await populateArrAthlete(),
@@ -145,11 +180,17 @@ async function pushValues() {
     }
 }
 
-async function getTotalHistory(athleteId, exerciseName){
+async function pullDates(athleteId){
+    return {
+        dates: await populateArrDates(athleteId)
+    }
+}  
+
+async function getWorkoutHistory(athleteId, date){
     const client = new pg.Client(cs);
     client.connect();
 
-    var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName + '\'');
+    var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.date=\'' + date + '\'');
     let data = res.rows;
 
     client.end();
@@ -160,7 +201,7 @@ async function getAllWorkouts(athleteId, exerciseName){
     const client = new pg.Client(cs);
     client.connect();
 
-    var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName + '\' ORDER BY date DESC');
+    var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName.replace('\'', '\'\'') + '\' ORDER BY date DESC');
     let data = res.rows;
 
     client.end();
