@@ -13,7 +13,16 @@
 //         $select.append($('<option></option>').val(i).html(i))
 //     }
 // });
-async function populate(){
+//
+
+
+async function populate() {
+  await populateHelper();
+  populateDate();
+}
+
+
+async function populateHelper(){
 
 	//fetching
 	let response = await fetch("http://localhost:8080/getValues");
@@ -49,25 +58,6 @@ async function populate(){
 
 }
 
-async function populateDates(athleteId){
-	//fetching
-	let response = await fetch("http://localhost:8080/getDates?athleteId=" + athleteId);
-
-	let obj = await response.json();
-
-	let date = obj.dates;
-
-	select = document.getElemntById("datesWorkedOut");
-
-	 date.forEach(object => {
-    	let opt = document.createElement('option');
-    	opt.value = date;
-    	opt.innerHTML = dateConverter(parseInt(date)).toDateString();
-    	select.appendChild(opt);
-    });
-
-
-}
 //to convert dates
 function dateConverter(excelDate){
     return new Date((excelDate - (25567 + 2))*86400*1000);
@@ -169,23 +159,29 @@ function showD(){
 async function populateDate(){
 	let autoPop = document.getElementById("athleteName");
 	let dateList = document.getElementById("datesWorkedOut");
-
+  populateDateHelper();
 	autoPop.addEventListener("change", async() => {
+    populateDateHelper();
 
-	console.log(autoPop.value);
+});
+
+}
+
+async function populateDateHelper() {
+	let autoPop = document.getElementById("athleteName");
+  console.log(autoPop.value);
 	let response = await fetch("http://localhost:8080/getDates?athleteId=" + autoPop.value);
     let object = await response.json();
     let dates = object.dates;
 
     let select = document.getElementById("datesWorkedOut");
+    select.innerHTML = "";
     dates.forEach(obj => {
     	let opt = document.createElement('option');
     	opt.value = obj.date.date;
     	opt.innerHTML = dateConverter(parseInt(obj.date.date)).toDateString();
     	select.appendChild(opt);
     });
-});
-
 }
 
 function submitChoice(){
@@ -206,7 +202,3 @@ function submitChoice(){
 		getWorkoutHistoryData();
 	}
 }
-
-//calling Populate Date
-populateDate();
-

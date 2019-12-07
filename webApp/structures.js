@@ -82,7 +82,7 @@ app.listen(8080,() =>{
 
 
 const pg = require('pg');
-const cs = 'postgres://seunomonije:password@localhost:5432/gainz2';
+const cs = 'postgres://jalengabbidon:password@localhost:5432/YSC';
 
 async function populateArrAthlete(){
 
