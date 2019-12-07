@@ -90,16 +90,9 @@ async function populateArrAthlete(){
     client.connect();
 
     let arr = [];
-	var res = await client.query('SELECT * FROM athlete')
+    var res = await client.query('SELECT * FROM athlete ORDER BY first_name');
     const data = res.rows;
     //console.log(data);
-
-    //sorting
-    data.sort((a,b) => {
-  
-        return a.first_name.localeCompare(b.first_name)
-    });
-
 
     data.forEach(row => {
         var athleteObj = {
@@ -122,16 +115,8 @@ async function populateArrExercises(){
     client.connect();
 
     let arr = [];
-    var res = await client.query('SELECT * FROM workout')
+    var res = await client.query('SELECT DISTINCT exercise_name FROM workout ORDER BY exercise_name')
     let data = res.rows;
-    
-    //sorting
-    data.sort((a,b) => {
-  
-        return a.exercise_name.localeCompare(b.exercise_name)
-    });
-
-  
 
     data.forEach(row => {
         var exerciseObj = {
@@ -143,13 +128,9 @@ async function populateArrExercises(){
 
     })
 
-    jsonObject = arr.map(JSON.stringify);
-
-    uniqueSet = new Set(jsonObject);
-    uniqueArray = Array.from(uniqueSet).map(JSON.parse);
 
     client.end();
-    return uniqueArray;
+    return arr;
 }
 
 async function populateArrDates(athleteId){
