@@ -6,6 +6,9 @@ Make sure to git pull/git fetch before pushing.
 ## Required downloads:
 - node.js at https://nodejs.org/en/download/
 - homebrew using the command: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+- postgresql using command: `homebrew install postgresql`
+- express using `npm install express`
+- cors using `npm install cors`
  
 ## Instructions:
     
@@ -31,3 +34,4 @@ node structures.js
 ## TODO:
 - create executable for easy use.
 - allow for easy import of new csv files for conversion to database
+- create a package.json
