@@ -267,8 +267,11 @@ async function getAllWorkouts(athleteId, exerciseName) {
 async function get80Max(athleteId, exerciseName, date){ //CURRENTLY RUNNING WITH 70% MAX
     const client = new pg.Client(cs);
     client.connect();
-    
-    var res = await client.query('SELECT SUM(exercise_set.reps)/2 FROM exercise_set,exercise_max WHERE exercise_set.athlete_id=\'' + athleteId + '\' AND exercise_set.athlete_id=exercise_max.athlete_id AND exercise_set.exercise_name=\'' + exerciseName.replace('\'', '\'\'') + '\' AND exercise_set.exercise_name=exercise_max.exercise_name AND exercise_set.date=\'' + date + '\' AND exercise_max.date=exercise_set.date AND exercise_set.weight >= 0.7*exercise_max.weight');
+
+    var res = await client.query('SELECT SUM(exercise_set.reps)/2 FROM exercise_set,exercise_max WHERE exercise_set.athlete_id=\'' + athleteId 
+        + '\' AND exercise_set.athlete_id=exercise_max.athlete_id AND exercise_set.exercise_name=\'' + exerciseName.replace('\'', '\'\'') 
+        + '\' AND exercise_set.exercise_name=exercise_max.exercise_name AND exercise_set.date=\'' + date 
+        + '\' AND exercise_max.date=exercise_set.date AND exercise_set.weight >= 0.7*exercise_max.weight');
     let data = res.rows;
 
     client.end();

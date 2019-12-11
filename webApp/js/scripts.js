@@ -147,7 +147,7 @@ async function populateDateHelper() {
 
 //to convert dates
 function dateConverter(excelDate) {
-	return new Date((excelDate - (25567 + 2)) * 86400 * 1000);
+	return new Date((excelDate - (25567 + 1)) * 86400 * 1000);
 }
 
 
@@ -252,6 +252,9 @@ async function add80Max() {
 	console.log(repsData);
 	repsData.forEach(row => {
 		pRef.innerHTML = row["?column?"];
+		if (row["?column?"] == null){
+			pRef.innerHTML = 0;
+		}
 	});
 
 }
@@ -290,7 +293,7 @@ function showB(){
 	document.getElementById("datesWithExerciseButton").style.display = "inline";
 	document.getElementById("datesWithExercise").style.display = "inline";
 	document.getElementById("exerciseName").style.display = "inline";
-
+	document.getElementById("datesWorkedOut").style.display = "none";
 	document.getElementById("80Container").style.display = "inline";
 }
 

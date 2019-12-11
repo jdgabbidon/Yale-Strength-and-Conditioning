@@ -25,11 +25,7 @@
 	}
 
 	table {
-		background-color: white;
-	}
-
-	#dataTable {
-		margin-top: 20px;
+		background-color: #d3d3d3;
 	}
 
 	select {
@@ -44,9 +40,15 @@
 		background-color: #d3d3d3;
 	}
 
-	#exerciseName {
+	#exerciseName, #datesWorkedOut {
 		margin-top: 10px;
 	}
+
+
+	#dataTable {
+		margin-top: 20px;
+	}
+
 
 	#subButton {
 		margin-top: 10px;
@@ -54,13 +56,21 @@
 	#demo {
 		font-size: 20px;
 	}
+
+	#repsNumber {
+		background-color: yellow;
+		font-weight: bold;
+		color: black;
+		font-size: 20px;
+		width: 20%;
+	}
 </style>
 
 
 <h1 id="mainHeader">Strength Selector</h1>
 
-<button onclick=showD() >Workout on Day</button>
 <button onclick=showE()>All Instances of Exercise</button> 
+<button onclick=showD() >Workout on Day</button>
 <button onclick=showB()>Get 80% Max</button>
 
 <center>
@@ -74,7 +84,7 @@
 <select id="datesWorkedOut" style="display: none;" class="selects"></select>
 </div>
 
-<button id="subButton" style = "width: 100px; height: 25px; font-weight: bold; font-size: 12px;" onclick=submitChoice()>Submit</button> <!--Also getTotalPerExercise goes here but currently not -->
+<button id="subButton" style = "width: 100px; height: 25px; font-weight: bold; font-size: 12px;" onclick=submitChoice()>Display Rows</button> <!--Also getTotalPerExercise goes here but currently not -->
 </center>
 
 <!--
@@ -108,8 +118,10 @@
 	<button id="datesWithExerciseButton" style="display:none" onclick=populateExerciseDate()>Update Exercise Dates</button><br />
 	<select id="datesWithExercise" style="display: none; margin-top: 10px;" class="selects"></select><br />
 	<button onclick=add80Max() style="margin-top: 10px">Get Reps</button>
-	<p style="font-weight: bold;"> Reps over 70% (for purposes of demonstration)</p>
+	<div id = "repsdiv" style="border: 2px solid #d3d3d3; margin-top: 10px; width: 40%">
+	<p style="font-weight: bold; padding: 2px;"> Reps over 70% (for purposes of demonstration)</p>
 	<p id="repsNumber">N/A</p>
+	</div>
 </div>
 </center>
 
