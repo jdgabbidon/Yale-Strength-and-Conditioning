@@ -50,6 +50,39 @@ async function populateHelper() {
 	});
 }
 
+async function populateExerciseDateHelper(){
+
+	let athleteId = document.getElementById('athleteName').value;
+	let exerciseName = document.getElementById('exerciseName').value;
+
+	let response = await fetch("http://localhost:8080/getExerciseDates?athleteId=" + athleteId + "&exerciseName=" + exerciseName);
+	let obj = await response.json()
+
+	let dateData = obj.dates;
+
+
+	let select = document.getElementById("datesWithExercise");
+	select.innerHTML = "";
+
+	dateData.forEach(object => {
+		let opt = document.createElement('option');
+		opt.value = object.date.date;
+		opt.innerHTML = dateConverter(parseInt(object.date.date)).toDateString();
+		select.appendChild(opt);
+
+	})
+}
+
+async function populateExerciseDate(){
+	let autoPop = document.getElementById("athleteName");
+	let dateList = document.getElementById("datesWorkedOut");
+	populateExerciseDateHelper();
+	autoPop.addEventListener("change", async () =>{
+		populateExerciseDateHelper();
+	});
+}
+
+
 async function populateExercises() {
 	let autoPop = document.getElementById("athleteName");
 	let dateList = document.getElementById("datesWorkedOut");
@@ -84,7 +117,6 @@ async function populateDate() {
 	populateDateHelper();
 	autoPop.addEventListener("change", async () => {
 		populateDateHelper();
-
 	});
 
 }
@@ -202,25 +234,64 @@ async function addRow() {
 
 }
 
+
+//spitting out data in rows
+async function add80Max() {
+
+	let athleteId = document.getElementById('athleteName').value;
+	let exerciseName = document.getElementById('exerciseName').value;
+	let date = document.getElementById('datesWithExercise').value;
+
+	let response = await fetch("http://localhost:8080/get80Max?athleteId=" + athleteId + "&exerciseName=" + exerciseName + "&date=" + date);
+
+	let pRef = document.getElementById("repsNumber");
+
+	let repsData = await response.json();
+
+
+	console.log(repsData);
+	repsData.forEach(row => {
+		pRef.innerHTML = row["?column?"];
+	});
+
+}
+
 async function singleDayWorkoutViewer() {
 	let athleteId = document.getElementById('athleteName').value;
 	let date = document.getElementById('datesWorkedOut').value;
 }
 
-// ***************************************************************** 
+//***************************************************************** 
 //
 //                            Search 
 //
-//******************************************************************
+//*****************************************************************
 
 function showE() {
 	document.getElementById("exerciseName").style.display = "inline";
 	document.getElementById("datesWorkedOut").style.display = "none";
+
+	document.getElementById("datesWithExercise").style.display = "none";
+	document.getElementById("datesWithExerciseButton").style.display = "none";
+
+	document.getElementById("80Container").style.display = "none";
 }
 
 function showD() {
 	document.getElementById("datesWorkedOut").style.display = "inline";
 	document.getElementById("exerciseName").style.display = "none";
+	document.getElementById("datesWithExercise").style.display = "none";
+	document.getElementById("datesWithExerciseButton").style.display = "none";
+
+	document.getElementById("80Container").style.display = "none";
+}
+
+function showB(){
+	document.getElementById("datesWithExerciseButton").style.display = "inline";
+	document.getElementById("datesWithExercise").style.display = "inline";
+	document.getElementById("exerciseName").style.display = "inline";
+
+	document.getElementById("80Container").style.display = "inline";
 }
 
 function submitChoice() {

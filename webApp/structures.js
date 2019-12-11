@@ -23,6 +23,12 @@ app.get("/getDates", async (request, response) => {
 
 });
 
+app.get("/getExerciseDates", async (request, response) => {
+    let id = request.query.athleteId;
+    let name = request.query.exerciseName;
+    response.send(await pullExerciseDates(id, name))
+})
+
 app.get("/getExercises", async (request, response) => {
     console.log(request.query.athleteId);
     response.send(await pullExercises(request.query.athleteId));
@@ -63,6 +69,16 @@ app.get("/getSingleDayWorkout", async (request, response) => {
 
 });
 
+//for getting 70% max of an exercise on a date
+app.get("/get80Max", async (request, response) => {
+
+    let id = request.query.athleteId;
+    let exerciseName = request.query.exerciseName;
+    let date = request.query.date;
+    response.send(await get80Max(id, exerciseName, date));
+
+});
+
 
 app.get("/", async (request, response) => {
 
@@ -87,7 +103,7 @@ app.listen(8080, () => {
 
 
 const pg = require('pg');
-const cs = 'postgres://jalengabbidon:password@localhost:5432/YSC';
+const cs = 'postgres://seunomonije:password@localhost:5432/gainz3';
 
 async function populateArrAthlete() {
 
@@ -160,6 +176,27 @@ async function populateArrDates(athleteId) {
     return arr;
 }
 
+async function populateArrExerciseDates(athleteId, exerciseName) {
+    const client = new pg.Client(cs);
+    client.connect();
+
+    var arr = [];
+    var res = await client.query('SELECT DISTINCT date FROM exercise_day WHERE athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName.replace('\'', '\'\'') + '\' ORDER BY date DESC');
+    let data = res.rows;
+
+    data.forEach(row => {
+        var dateObj = {
+            'date': row
+        }
+
+        arr.push(dateObj);
+    });
+    client.end();
+    return arr;
+}
+
+
+
 async function populateArrExercises(athleteId) {
 
     const client = new pg.Client(cs);
@@ -180,6 +217,7 @@ async function populateArrExercises(athleteId) {
 
 }
 
+    //objects
 async function pushValues() {
     return {
         athletes: await populateArrAthlete(),
@@ -192,9 +230,17 @@ async function pullDates(athleteId) {
     }
 }
 
+async function pullExerciseDates(athleteId, exerciseName){
+    return {
+        dates: await populateArrExerciseDates(athleteId, exerciseName)
+    }
+}
+
 async function pullExercises(athleteId) {
     return await populateArrExercises(athleteId);
 }
+    //end objects
+
 
 async function getWorkoutHistory(athleteId, date) {
     const client = new pg.Client(cs);
@@ -212,6 +258,17 @@ async function getAllWorkouts(athleteId, exerciseName) {
     client.connect();
 
     var res = await client.query('SELECT * FROM exercise_day WHERE exercise_day.athlete_id=\'' + athleteId + '\' AND exercise_day.exercise_name=\'' + exerciseName.replace('\'', '\'\'') + '\' ORDER BY date DESC');
+    let data = res.rows;
+
+    client.end();
+    return data;
+}
+
+async function get80Max(athleteId, exerciseName, date){ //CURRENTLY RUNNING WITH 70% MAX
+    const client = new pg.Client(cs);
+    client.connect();
+    
+    var res = await client.query('SELECT SUM(exercise_set.reps)/2 FROM exercise_set,exercise_max WHERE exercise_set.athlete_id=\'' + athleteId + '\' AND exercise_set.athlete_id=exercise_max.athlete_id AND exercise_set.exercise_name=\'' + exerciseName.replace('\'', '\'\'') + '\' AND exercise_set.exercise_name=exercise_max.exercise_name AND exercise_set.date=\'' + date + '\' AND exercise_max.date=exercise_set.date AND exercise_set.weight >= 0.7*exercise_max.weight');
     let data = res.rows;
 
     client.end();

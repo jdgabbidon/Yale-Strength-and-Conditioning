@@ -12,6 +12,48 @@
 	tr, td{
 		border: 1px solid black;
 	}
+	th {
+		text-align: left;
+	}
+
+	body {
+		background-color: #0f4d92; /* Yale Blue */
+	}
+
+	h1, p, h3 {
+		color: #d3d3d3;
+	}
+
+	table {
+		background-color: white;
+	}
+
+	#dataTable {
+		margin-top: 20px;
+	}
+
+	select {
+		width: 200px;
+		height: 30px;
+	}
+	option {
+		font-size: 25px;
+	}
+
+	button {
+		background-color: #d3d3d3;
+	}
+
+	#exerciseName {
+		margin-top: 10px;
+	}
+
+	#subButton {
+		margin-top: 10px;
+	}
+	#demo {
+		font-size: 20px;
+	}
 </style>
 
 
@@ -19,10 +61,12 @@
 
 <button onclick=showD() >Workout on Day</button>
 <button onclick=showE()>All Instances of Exercise</button> 
+<button onclick=showB()>Get 80% Max</button>
 
+<center>
 <p id="demo">Enter Info:</p>
 
-<button onclick=populate()>Populate</button>
+<button onclick=populate() style="width: 100px; height: 25px; font-weight: bold; font-size: 12px;">Populate</button>
 
 <div>
 <select id="athleteName" class="selects"></select>
@@ -30,9 +74,10 @@
 <select id="datesWorkedOut" style="display: none;" class="selects"></select>
 </div>
 
-<button onclick=submitChoice()>Submit</button> <!--Also getTotalPerExercise goes here but currently not -->
+<button id="subButton" style = "width: 100px; height: 25px; font-weight: bold; font-size: 12px;" onclick=submitChoice()>Submit</button> <!--Also getTotalPerExercise goes here but currently not -->
+</center>
 
-
+<!--
 <div>
 <p>Available Dates:</p>
 <select id="dates" class="selects"></select>
@@ -41,20 +86,32 @@
 <div>
 	<h3 id="results" style="text-decoration: underline;">Results</h3>
 </div>
-
+-->
 
 
 <div>
-	<table id = "dataTable" style="width: 95%; border: 2px solid black;">
+	<table id = "dataTable" style="width: 95%; border: 2px solid #d3d3d3;">
 		<tr>
 			<th>Date</th>
 			<th>Exercise Name</th>
 			<th>Rep Count<th>
-			<th>Total Tonage</th>
+			<th style="text-align: left;">Total Tonage</th>
 		</tr>
 
 	</table>
 </div>
+
+
+<center>
+<div id = "80Container" style="display: none">
+	<h3 style="margin-top: 20px; text-decoration: underline;">Calculate Reps Over 80%</h3>
+	<button id="datesWithExerciseButton" style="display:none" onclick=populateExerciseDate()>Update Exercise Dates</button><br />
+	<select id="datesWithExercise" style="display: none; margin-top: 10px;" class="selects"></select><br />
+	<button onclick=add80Max() style="margin-top: 10px">Get Reps</button>
+	<p style="font-weight: bold;"> Reps over 70% (for purposes of demonstration)</p>
+	<p id="repsNumber">N/A</p>
+</div>
+</center>
 
 </body>
 
